@@ -306,9 +306,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .clip figcaption { display: flex; justify-content: space-between; gap: 12px; margin-top: 10px; color: var(--muted); }
 .clip figcaption strong { color: var(--ink); }
 .reels-head { margin-top: 56px; }
-.reels-head p { color: var(--muted); margin: 0; }
+.reels-head p { color: var(--muted); margin: 0 auto; max-width: 62ch; }
 .clips.reels { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 300px)); justify-content: center; }
 .clips.reels .clip video { aspect-ratio: 9 / 16; }
+.clips.concept { grid-template-columns: minmax(0, 760px); justify-content: center; }
 .songs { list-style: none; margin: 32px auto 0; padding: 0; max-width: 760px; display: grid; gap: 14px; }
 .song { display: grid; gap: 8px; padding: 14px 0; border-bottom: 1px solid var(--line); }
 .song-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; }

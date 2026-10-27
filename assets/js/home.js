@@ -26,6 +26,14 @@
     'home.reel.r2': ['Versão curta', 'Short version', 'Versión corta'],
     'home.reel.aria1': ['Reel Raiz e Engrenagem, versão completa', 'Raiz e Engrenagem reel, full version', 'Reel Raiz e Engrenagem, versión completa'],
     'home.reel.aria2': ['Reel Raiz e Engrenagem, versão curta', 'Raiz e Engrenagem reel, short version', 'Reel Raiz e Engrenagem, versión corta'],
+    'home.con.h3': ['Conceitos em vídeo', 'Concepts on video', 'Conceptos en video'],
+    'home.con.lead': [
+      'Ideias do curso explicadas em poucos minutos. Para começar: a curva de nível, técnica que segura a água e o solo no lugar.',
+      'Program ideas explained in a few minutes (in Portuguese, with on-screen captions). To start: contour lines, the technique that keeps water and soil in place.',
+      'Ideas de la carrera explicadas en pocos minutos (en portugués, con subtítulos en pantalla). Para empezar: la curva de nivel, técnica que mantiene el agua y el suelo en su lugar.'
+    ],
+    'home.con.v1': ['Curva de nível', 'Contour lines', 'Curva de nivel'],
+    'home.con.aria1': ['Vídeo Curva de nível: como segurar a água e o solo no lugar', 'Video on contour lines: how to keep water and soil in place', 'Video Curva de nivel: cómo mantener el agua y el suelo en su lugar'],
     'home.mus.h3': ['Músicas do curso', 'Program songs', 'Canciones de la carrera'],
     'home.mus.lead': [
       'As canções dos clipes e reels, para ouvir aqui ou baixar.',
