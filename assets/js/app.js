@@ -175,8 +175,7 @@
     'nav.history': ['Evolução do PPC', 'PPC history', 'Evolución del PPC'],
     'nav.future': ['PPC do futuro', 'Future PPC', 'PPC del futuro'],
     'nav.tech': ['IA no campo', 'AI in the field', 'IA en el campo'],
-    'nav.agenda': ['Horários 2026.2', '2026.2 timetable', 'Horarios 2026.2'],
-    'nav.schedule': ['Horários e docentes', 'Schedules and faculty', 'Horarios y docentes'],
+    'nav.schedule': ['Horários', 'Timetable', 'Horarios'],
     'nav.menu': ['Abrir menu', 'Open menu', 'Abrir menú'],
     'nav.theme': ['Alternar tema claro/escuro', 'Toggle light/dark theme', 'Cambiar tema claro/oscuro'],
     'nav.lang': ['Idioma', 'Language', 'Idioma'],
@@ -211,15 +210,15 @@
 
   /* ---------------- Cabeçalho e rodapé ---------------- */
   const PAGES = [
-    ['index.html', 'nav.home'], ['matriz.html', 'nav.matrix'], ['grade.html', 'nav.planner'], ['agenda.html', 'nav.agenda'],
+    ['index.html', 'nav.home'], ['matriz.html', 'nav.matrix'], ['grade.html', 'nav.planner'], ['horarios.html', 'nav.schedule'],
     ['carreira.html', 'nav.career'], ['guia.html', 'nav.guide'], ['evolucao.html', 'nav.history'], ['futuro.html', 'nav.future']
   ];
   // páginas que só aparecem no rodapé (o menu do topo já está no limite de largura)
-  const FOOTER_ONLY = [['tecnologias.html', 'nav.tech'], ['horarios.html', 'nav.schedule']];
+  const FOOTER_ONLY = [['tecnologias.html', 'nav.tech']];
 
   function currentPage() {
     const p = location.pathname.split('/').pop();
-    return p === '' ? 'index.html' : p;
+    return p === '' ? 'index.html' : p === 'agenda.html' ? 'horarios.html' : p;
   }
 
   function renderChrome() {

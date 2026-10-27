@@ -1,54 +1,28 @@
-/* Horários 2026.2: o aluno escolhe as turmas que vai cursar em cada semestre, vê a semana,
-   os choques de horário e exporta para agendas (.ics para Apple, Outlook, Google e outros;
-   links diretos para o Google Agenda). Os dados vêm de data/horarios.js (window.EA_HORARIOS)
-   e a escolha fica salva só no navegador (localStorage), separada por semestre. */
+/* Minha agenda (seção #agenda de horarios.html): o aluno marca as turmas nos próprios horários
+   (horarios.js chama window.EA_AGENDA), vê a semana, os choques de horário e exporta para agendas
+   (.ics para Apple, Outlook, Google e outros; links diretos para o Google Agenda). Os dados vêm de
+   data/horarios.js (window.EA_HORARIOS) e a escolha fica salva só no navegador (localStorage),
+   separada por semestre. */
 (function () {
   'use strict';
   const { add, t, L, BY, esc, store, toast } = EA;
 
   add({
-    'ag.title': ['Horários 2026.2', '2026.2 timetable', 'Horarios 2026.2'],
-    'ag.eyebrow': ['Engenharia Agrícola · {t}', 'Agricultural Engineering · {t}', 'Ingeniería Agrícola · {t}'],
-    'ag.h1': ['Monte seus horários do semestre', 'Build your semester timetable', 'Armá tus horarios del semestre'],
-    'ag.lead': [
-      'Escolha as turmas que você vai cursar, veja a sua semana pronta, descubra choques de horário e leve tudo para a agenda do celular ou do computador.',
-      'Pick the classes you will take, see your week laid out, spot time clashes and send everything to your phone or computer calendar.',
-      'Elegí los cursos que vas a hacer, mirá tu semana armada, detectá choques de horario y llevá todo a la agenda del celular o de la computadora.'
-    ],
-    'ag.step1': ['Marque as turmas na lista de ofertas.', 'Tick your classes in the offer list.', 'Marcá los cursos en la lista de ofertas.'],
-    'ag.step2': ['Confira a semana e os avisos de choque.', 'Check the week and any clash warnings.', 'Revisá la semana y los avisos de choque.'],
-    'ag.step3': ['Exporte para a sua agenda.', 'Export to your calendar.', 'Exportá a tu agenda.'],
-    'ag.term': ['Semestre', 'Semester', 'Semestre'],
-    'ag.current': ['atual', 'current', 'actual'],
+    'ag.eyebrow': ['Sua agenda · {t}', 'Your timetable · {t}', 'Tu agenda · {t}'],
     'ag.saved': [
       'Sua escolha fica salva neste navegador, separada por semestre, e a página funciona mesmo sem internet depois da primeira visita.',
       'Your choices are saved in this browser, one set per semester, and the page works offline after your first visit.',
       'Tu elección queda guardada en este navegador, separada por semestre, y la página funciona sin internet después de la primera visita.'
     ],
-    'ag.offer.h': ['Turmas ofertadas', 'Classes offered', 'Cursos ofertados'],
-    'ag.search': ['Buscar disciplina, código, professor ou sala', 'Search course, code, lecturer or room', 'Buscar asignatura, código, profesor o aula'],
-    'ag.search.ph': ['Ex.: Hidráulica, AL0296, A1-203', 'E.g. Hidráulica, AL0296, A1-203', 'Ej.: Hidráulica, AL0296, A1-203'],
-    'ag.groups': ['Filtrar por semestre do curso', 'Filter by program semester', 'Filtrar por semestre de la carrera'],
-    'ag.all': ['Todas', 'All', 'Todas'],
-    'ag.g.sem': ['{n}º semestre', 'Semester {n}', 'Semestre {n}'],
-    'ag.g.CG': ['Optativas (CCCG)', 'Electives (CCCG)', 'Optativas (CCCG)'],
-    'ag.g.Extra': ['Ofertas extras', 'Extra offers', 'Ofertas extra'],
-    'ag.g.Rec': ['Recuperação', 'Make-up', 'Recuperación'],
-    'ag.addall': ['Adicionar todas do {g}', 'Add all from {g}', 'Agregar todas de {g}'],
     'ag.addall.done': ['{n} turmas adicionadas. Nas aulas de laboratório divididas em A e B, ficou a A: troque se a sua for outra.', '{n} classes added. For labs split into A and B, A was picked: swap it if yours differs.', '{n} cursos agregados. En los laboratorios divididos en A y B quedó la A: cambiala si la tuya es otra.'],
     'ag.addall.none': ['Todas as turmas deste grupo já estão na sua semana.', 'All classes in this group are already in your week.', 'Todos los cursos de este grupo ya están en tu semana.'],
-    'ag.empty.list': ['Nenhuma turma encontrada com esses filtros.', 'No classes match these filters.', 'Ningún curso coincide con estos filtros.'],
-    'ag.add': ['Adicionar', 'Add', 'Agregar'],
-    'ag.remove': ['Remover', 'Remove', 'Quitar'],
-    'ag.added': ['Na semana', 'In your week', 'En tu semana'],
-    'ag.turma': ['Turma', 'Class', 'Comisión'],
     'ag.mine.h': ['Minha semana', 'My week', 'Mi semana'],
     'ag.sum': ['{n} turmas · {h} por semana', '{n} classes · {h} per week', '{n} cursos · {h} por semana'],
     'ag.sum1': ['1 turma · {h} por semana', '1 class · {h} per week', '1 curso · {h} por semana'],
     'ag.empty.week': [
-      'Sua semana está vazia. Marque as turmas na lista ao lado (ou acima, no celular) para montá-la.',
-      'Your week is empty. Tick classes in the list to build it.',
-      'Tu semana está vacía. Marcá cursos en la lista para armarla.'
+      'Sua agenda está vazia. Escolha o semestre acima e toque em “+ Agenda” nas disciplinas que vai cursar.',
+      'Your timetable is empty. Pick the semester above and tap “+ Agenda” on the courses you will take.',
+      'Tu agenda está vacía. Elegí el semestre arriba y tocá “+ Agenda” en las asignaturas que vas a cursar.'
     ],
     'ag.clash.h': ['Choque de horário', 'Time clash', 'Choque de horario'],
     'ag.clash': ['{d} {r}: {a} e {b}', '{d} {r}: {a} and {b}', '{d} {r}: {a} y {b}'],
@@ -119,12 +93,6 @@
       '<p>Thunderbird, Samsung Calendar, Proton Calendar, Fastmail, Nextcloud and most calendar apps import .ics files. Look for “Import” in the app menu or open the downloaded file.</p>',
       '<p>Thunderbird, Samsung Calendar, Proton Calendar, Fastmail, Nextcloud y la mayoría de las apps de agenda importan archivos .ics. Buscá “Importar” en el menú de la app o abrí el archivo descargado.</p>'
     ],
-    'ag.notes.h': ['Bom saber', 'Good to know', 'Bueno saber'],
-    'ag.notes.src': [
-      'As turmas vêm do PDF oficial de horários do Campus Alegrete (<a id="ag-pdf" href="horarios.html#fontes">ver fontes</a>). Para ver salas e professores de outros semestres, use <a href="horarios.html">Horários e docentes</a>.',
-      'Classes come from the official Alegrete Campus timetable PDF (<a href="horarios.html#fontes">see sources</a>). For rooms and lecturers in other semesters, see <a href="horarios.html">Schedules and faculty</a>.',
-      'Los cursos vienen del PDF oficial de horarios del Campus Alegrete (<a href="horarios.html#fontes">ver fuentes</a>). Para aulas y profesores de otros semestres, mirá <a href="horarios.html">Horarios y docentes</a>.'
-    ],
     'ag.notes.priv': [
       'Nada é enviado para servidor nenhum: a escolha fica no seu navegador e o arquivo .ics é gerado no próprio aparelho.',
       'Nothing is sent to any server: your choice stays in your browser and the .ics file is generated on your device.',
@@ -150,12 +118,6 @@
   const termName = id => id.replace('.', '/');
   const groupKey = g => (g === 'Extra1' ? 'Extra' : g);
   const groupOrder = g => (/^\d\d$/.test(g) ? +g : { CG: 20, Extra: 21, Rec: 22 }[g] || 30);
-  function groupLabel(g) {
-    if (/^\d\d$/.test(g)) return t('ag.g.sem', { n: +g });
-    const k = 'ag.g.' + g; const s = t(k);
-    return s === k ? g : s;
-  }
-
   /* ---------------- Turmas: disciplina + turma, com todos os horários ---------------- */
   // Linha: [disciplina, código, turma, professor, sala, dia (0 = segunda), início, fim, grupos]
   const TERMS = {};
@@ -201,21 +163,21 @@
     return saved.terms[id];
   }
 
+  // O semestre da agenda acompanha o semestre escolhido nos horários (horarios.js chama setTerm).
   const params = new URLSearchParams(location.search);
-  const ui = { term: H.terms[0].id, group: 'all', q: '' };
-  if (saved.current && TERMS[saved.current]) ui.term = saved.current;
+  const ui = { term: H.terms[0].id };
   if (params.get('t') && TERMS[params.get('t')]) ui.term = params.get('t');
 
-  // Link compartilhado: ?t=2026.2&s=AL0296~T40,AL0011~T40;80
-  if (params.has('s') && TERMS[ui.term]) {
-    const keys = params.get('s').split(',').filter(k => TERMS[ui.term].by.has(k));
+  // Link compartilhado: horarios.html?t=2026.2&a=AL0296~T40,AL0011~T40;80#agenda
+  if (params.has('a') && TERMS[ui.term]) {
+    const keys = params.get('a').split(',').filter(k => TERMS[ui.term].by.has(k));
     const st = termState(ui.term);
     const same = keys.length === st.sel.length && keys.every(k => st.sel.includes(k));
     if (keys.length && !same && (!st.sel.length || confirm(t('ag.shared.confirm', { t: termName(ui.term) })))) {
       st.sel = keys; save();
       setTimeout(() => toast(t('ag.shared.done')), 400);
     }
-    const url = new URL(location.href); url.searchParams.delete('s'); url.searchParams.delete('t');
+    const url = new URL(location.href); url.searchParams.delete('a');
     history.replaceState(null, '', url);
   }
 
@@ -225,7 +187,6 @@
 
   /* ---------------- Elementos ---------------- */
   const $ = id => document.getElementById(id);
-  const $term = $('ag-term'), $q = $('ag-q'), $groups = $('ag-groups'), $list = $('ag-list'), $addall = $('ag-addall');
   const $week = $('ag-week'), $days = $('ag-days'), $chosen = $('ag-chosen'), $sum = $('ag-sum'), $conf = $('ag-conflicts');
   const $start = $('ag-start'), $end = $('ag-end'), $hol = $('ag-hol');
 
@@ -242,37 +203,6 @@
   }
   const PALETTE = ['base', 'water', 'mach', 'post', 'geo', 'mgmt', 'build', 'human', 'energy', 'env', 'synth', 'plant'];
   function colorOf(c, i) { return `var(--a-${area(c) || PALETTE[i % PALETTE.length]})`; }
-
-  /* ---------------- Lista de ofertas ---------------- */
-  function renderGroups() {
-    const gs = [...new Set(T().list.flatMap(c => c.g))].sort((a, b) => groupOrder(a) - groupOrder(b));
-    if (ui.group !== 'all' && !gs.includes(ui.group)) ui.group = 'all';
-    $groups.innerHTML = ['all'].concat(gs).map(g =>
-      `<button type="button" class="chip toggle" data-g="${g}" aria-pressed="${g === ui.group}">${g === 'all' ? t('ag.all') : groupLabel(g)}</button>`).join('');
-  }
-
-  function slotLine(s) { return `<span class="ag-nowrap">${days3()[s.day]} ${s.start}–${s.end}</span> <span class="ag-room">${esc(s.room)}</span>`; }
-
-  function renderList() {
-    const q = norm(ui.q.trim());
-    const sel = new Set(S().sel);
-    const list = T().list.filter(c => (ui.group === 'all' || c.g.includes(ui.group)) && (!q || q.split(/\s+/).every(w => c.hay.includes(w))));
-    $addall.innerHTML = ui.group !== 'all' && !q
-      ? `<button class="btn btn-ghost btn-sm" type="button" id="ag-addall-btn"><span>${EA.ICONS.plus}</span>${t('ag.addall', { g: groupLabel(ui.group) })}</button>` : '';
-    if (!list.length) { $list.innerHTML = `<p class="ag-empty">${t('ag.empty.list')}</p>`; return; }
-    $list.innerHTML = list.map(c => {
-      const on = sel.has(c.key);
-      return `<label class="ag-item${on ? ' on' : ''}">
-        <input type="checkbox" data-key="${esc(c.key)}"${on ? ' checked' : ''}>
-        <span class="ag-item-body">
-          <span class="ag-item-name">${esc(cname(c))}</span>
-          <span class="ag-item-meta">${c.code ? `<span class="ag-code">${esc(c.code)}</span> · ` : ''}${t('ag.turma')} ${esc(c.turma)} · ${c.g.map(groupLabel).join(', ')}</span>
-          <span class="ag-item-prof">${c.profs.map(esc).join(', ')}</span>
-          <span class="ag-item-slots">${c.slots.map(slotLine).join('<br>')}</span>
-        </span>
-      </label>`;
-    }).join('');
-  }
 
   /* ---------------- Minha semana ---------------- */
   function renderMine() {
@@ -452,9 +382,9 @@
   async function share() {
     if (!chosen().length) { toast(t('ag.ex.empty')); return; }
     const url = new URL(location.href);
-    url.search = ''; url.hash = '';
+    url.search = ''; url.hash = 'agenda';
     url.searchParams.set('t', ui.term);
-    url.searchParams.set('s', S().sel.join(','));
+    url.searchParams.set('a', S().sel.join(','));
     try { await navigator.clipboard.writeText(url.href); toast(t('ag.ex.copied')); }
     catch (e) { prompt(t('ag.ex.share'), url.href); }
   }
@@ -482,52 +412,52 @@
         });
         if (!Object.keys(terms).length) throw new Error('vazio');
         saved.terms = terms;
-        if (TERMS[d.current]) ui.term = d.current;
-        saved.current = ui.term; save(); renderAll();
+        save(); renderAll(); changed();
         toast(t('ag.ex.restored', { n: Object.keys(terms).length }));
       } catch (e) { toast(t('ag.ex.badfile')); }
     };
     r.readAsText(file);
   }
 
-  /* ---------------- Renderização e eventos ---------------- */
+  /* ---------------- Renderização, eventos e API para horarios.js ---------------- */
   function renderTerm() {
-    $term.innerHTML = H.terms.map((tm, i) => `<option value="${tm.id}">${termName(tm.id)}${i === 0 ? ` (${t('ag.current')})` : ''}</option>`).join('');
-    $term.value = ui.term;
     $('ag-eyebrow').textContent = t('ag.eyebrow', { t: termName(ui.term) });
     const st = S();
     $start.value = st.start; $end.value = st.end; $hol.checked = st.hol;
   }
-  function renderAll() { renderTerm(); renderGroups(); renderList(); renderMine(); googleLinks(); }
+  function renderAll() { renderTerm(); renderMine(); googleLinks(); }
+  // Avisa horarios.js para atualizar os botões “+ Agenda”.
+  const changed = () => document.dispatchEvent(new CustomEvent('agendachange'));
+  function update() { save(); renderMine(); googleLinks(); changed(); }
 
   function toggle(key, on) {
     const st = S(); const i = st.sel.indexOf(key);
+    if (on === undefined) on = i < 0;
     if (on && i < 0) st.sel.push(key);
     if (!on && i >= 0) st.sel.splice(i, 1);
-    save(); renderList(); renderMine(); googleLinks();
+    update();
   }
 
-  $term.addEventListener('change', () => { ui.term = $term.value; saved.current = ui.term; save(); renderAll(); });
-  $q.addEventListener('input', () => { ui.q = $q.value; renderList(); });
-  $groups.addEventListener('click', e => {
-    const b = e.target.closest('button[data-g]'); if (!b) return;
-    ui.group = b.dataset.g;
-    $groups.querySelectorAll('button').forEach(o => o.setAttribute('aria-pressed', String(o === b)));
-    renderList();
-  });
-  $list.addEventListener('change', e => { if (e.target.dataset.key) toggle(e.target.dataset.key, e.target.checked); });
+  window.EA_AGENDA = {
+    key: (code, name, turma) => `${code || name}~${turma}`,
+    term: () => ui.term,
+    setTerm(id) { if (TERMS[id] && id !== ui.term) { ui.term = id; renderAll(); } },
+    has: key => S().sel.includes(key),
+    count: () => chosen().length,
+    toggle,
+    // Todas as turmas de um semestre do curso. Laboratórios divididos em subturmas
+    // (T40;80A, T40;80B): entra só a primeira.
+    addGroup(g) {
+      const st = S();
+      const pick = T().list.filter(c => c.g.includes(g) && !(/\d[B-Z]$/.test(c.turma) && T().by.has(`${c.code || c.name}~${c.turma.slice(0, -1)}A`)));
+      const fresh = pick.filter(c => !st.sel.includes(c.key));
+      fresh.forEach(c => st.sel.push(c.key));
+      if (fresh.length) update();
+      return fresh.length;
+    }
+  };
+
   $chosen.addEventListener('click', e => { const b = e.target.closest('button[data-key]'); if (b) toggle(b.dataset.key, false); });
-  $addall.addEventListener('click', e => {
-    if (!e.target.closest('#ag-addall-btn')) return;
-    const st = S();
-    // Laboratórios divididos em subturmas (T40;80A, T40;80B): entra só a primeira.
-    const pick = T().list.filter(c => c.g.includes(ui.group) && !(/\d[B-Z]$/.test(c.turma) && T().by.has(`${c.code || c.name}~${c.turma.slice(0, -1)}A`)));
-    const fresh = pick.filter(c => !st.sel.includes(c.key));
-    if (!fresh.length) { toast(t('ag.addall.none')); return; }
-    fresh.forEach(c => st.sel.push(c.key));
-    save(); renderList(); renderMine(); googleLinks();
-    toast(t('ag.addall.done', { n: fresh.length }));
-  });
   [[$start, 'start'], [$end, 'end']].forEach(([el, k]) => el.addEventListener('change', () => { S()[k] = el.value; save(); googleLinks(); }));
   $hol.addEventListener('change', () => { S().hol = $hol.checked; save(); });
   $('ag-ics').addEventListener('click', downloadICS);
@@ -538,10 +468,9 @@
   $('ag-file').addEventListener('change', e => { if (e.target.files[0]) restore(e.target.files[0]); e.target.value = ''; });
   $('ag-clear').addEventListener('click', () => {
     if (!S().sel.length || !confirm(t('ag.ex.confirmclear', { t: termName(ui.term) }))) return;
-    S().sel = []; save(); renderList(); renderMine(); googleLinks(); toast(t('ag.ex.cleared'));
+    S().sel = []; update(); toast(t('ag.ex.cleared'));
   });
   document.addEventListener('langchange', renderAll);
 
-  saved.current = ui.term; save();
   renderAll();
 })();

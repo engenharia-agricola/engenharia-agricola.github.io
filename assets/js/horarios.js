@@ -1,10 +1,11 @@
-/* Horários e docentes: o conteúdo está em português; aqui ficam o título, o aviso de idioma,
-   os filtros (semestre, grupo, busca), as vistas Semana e Lista e os cartões de docentes.
+/* Horários e agenda: o conteúdo está em português; aqui ficam o título, o aviso de idioma,
+   os filtros (semestre, grupo, busca), as vistas Semana e Lista, os botões “+ Agenda” que montam
+   a agenda do aluno (seção #agenda, em agenda.js) e os cartões de docentes.
    Os dados vêm de data/horarios.js (window.EA_HORARIOS). */
 (function () {
   'use strict';
   EA.add({
-    'ho.title': ['Horários e docentes', 'Schedules and faculty', 'Horarios y docentes'],
+    'ho.title': ['Horários e agenda', 'Schedules and timetable', 'Horarios y agenda'],
     'ho.langnote': [
       '',
       'This page is available in Portuguese only. It lists the courses, times, rooms and lecturers of the Agricultural Engineering classes from 2018 to 2026, and the program faculty.',
@@ -13,6 +14,7 @@
   });
 
   const H = window.EA_HORARIOS;
+  const AG = window.EA_AGENDA;
   const esc = EA.esc;
   const DAYS = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
   const DAY3 = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
@@ -23,7 +25,7 @@
   // Linha: [disciplina, código, turma, professor, sala, dia, início, fim, grupos]
   const rows = [];
   H.terms.forEach(t => t.rows.forEach(r => rows.push({
-    term: t.id, name: r[0], code: r[1], turma: r[2], prof: r[3], room: r[4],
+    term: t.id, name: r[0], code: r[1], turma: r[2], prof: r[3], room: r[4], key: AG.key(r[1], r[0], r[2]),
     day: r[5], start: r[6], end: r[7], groups: r[8].split(' '),
     hay: norm([r[0], r[1], r[3], r[4]].join(' '))
   })));
@@ -39,6 +41,8 @@
   const params = new URLSearchParams(location.search);
   const state = { term: H.terms[0].id, group: ALL, q: '', view: 'week' };
   if (params.get('s') && (params.get('s') === ALL || H.terms.some(t => t.id === params.get('s')))) state.term = params.get('s');
+  // Link compartilhado da agenda (?t=2026.2&a=...): abre no semestre dela.
+  if (params.get('t') && H.terms.some(t => t.id === params.get('t'))) state.term = params.get('t');
   if (params.get('q')) { state.q = params.get('q'); state.term = ALL; state.view = 'list'; }
 
   const $term = document.getElementById('ho-term');
@@ -47,6 +51,8 @@
   const $shown = document.getElementById('ho-shown');
   const $week = document.getElementById('ho-week');
   const $list = document.getElementById('ho-list');
+  const $addall = document.getElementById('ho-addall');
+  const $mine = document.getElementById('ho-mine');
   const tabs = { week: document.getElementById('tab-week'), list: document.getElementById('tab-list') };
 
   const termName = id => { const [y, s] = id.split('.'); return `${y}/${s}`; };
@@ -70,15 +76,25 @@
       `<button type="button" data-g="${g}" aria-pressed="${g === state.group}">${g === ALL ? 'Todos' : groupLabel(g)}</button>`).join('');
   }
 
+  /* ---------------- Botão “+ Agenda” ---------------- */
+  // Só com um semestre escolhido: a agenda é sempre de um semestre.
+  function addBtn(r) {
+    if (state.term === ALL) return '';
+    const on = AG.has(r.key);
+    return `<button type="button" class="ho-add" data-ak="${esc(r.key)}" aria-pressed="${on}" title="${on ? 'Tirar da agenda' : 'Pôr na agenda'}: ${esc(r.name)} (${esc(r.turma)})">${on ? '✓ Na agenda' : '+ Agenda'}</button>`;
+  }
+  const inAgenda = r => state.term !== ALL && AG.has(r.key);
+
   /* ---------------- Vista Semana ---------------- */
   function cardHTML(r, withTerm) {
     const link = r.code && EA.BY[r.code] ? `<a href="matriz.html?c=${r.code}">${esc(r.name)}</a>` : esc(r.name);
-    return `<article class="ho-card" data-kind="${/^\d\d$/.test(groupKey(r.groups[0])) ? 'sem' : groupKey(r.groups[0])}">
+    return `<article class="ho-card${inAgenda(r) ? ' in' : ''}" data-kind="${/^\d\d$/.test(groupKey(r.groups[0])) ? 'sem' : groupKey(r.groups[0])}">
       <p class="ho-time">${range(r.start, r.end)}${withTerm ? ` · ${termName(r.term)}` : ''}</p>
       <h4>${link}</h4>
       <p class="ho-meta">${r.code ? `<span class="ho-code">${esc(r.code)}</span> ` : ''}<span>${esc(r.turma)}</span> · <span>${r.groups.map(g => groupLabel(groupKey(g))).join(', ')}</span></p>
       <p class="ho-prof">${esc(r.prof)}</p>
       <p class="ho-room">${esc(r.room)}</p>
+      ${addBtn(r)}
     </article>`;
   }
 
@@ -103,7 +119,7 @@
     list.forEach(r => {
       const k = [r.term, r.code || r.name, r.turma, r.prof].join('|');
       let a = map.get(k);
-      if (!a) { a = { term: r.term, name: r.name, code: r.code, turma: r.turma, prof: r.prof, slots: [], rooms: new Set(), groups: new Set() }; map.set(k, a); }
+      if (!a) { a = { term: r.term, name: r.name, code: r.code, turma: r.turma, prof: r.prof, key: r.key, slots: [], rooms: new Set(), groups: new Set() }; map.set(k, a); }
       a.slots.push(r); a.rooms.add(r.room); r.groups.forEach(g => a.groups.add(groupKey(g)));
     });
     const out = [...map.values()];
@@ -116,10 +132,10 @@
     const agg = aggregate(list);
     const multi = state.term === ALL;
     $list.innerHTML = `<div class="ho-table-wrap"><table class="ho-table">
-      <thead><tr>${multi ? '<th>Semestre</th>' : ''}<th>Disciplina</th><th>Turma</th><th>Professor</th><th>Dias e horários</th><th>Sala</th><th>Grupo</th></tr></thead>
+      <thead><tr>${multi ? '<th>Semestre</th>' : '<th><span class="sr-only">Agenda</span></th>'}<th>Disciplina</th><th>Turma</th><th>Professor</th><th>Dias e horários</th><th>Sala</th><th>Grupo</th></tr></thead>
       <tbody>${agg.map(a => {
         const link = a.code && EA.BY[a.code] ? `<a href="matriz.html?c=${a.code}">${esc(a.name)}</a>` : esc(a.name);
-        return `<tr>${multi ? `<td class="ho-nowrap">${termName(a.term)}</td>` : ''}
+        return `<tr${inAgenda(a) ? ' class="in"' : ''}>${multi ? `<td class="ho-nowrap">${termName(a.term)}</td>` : `<td class="ho-addcell">${addBtn(a)}</td>`}
           <td>${link}${a.code ? ` <span class="ho-code">${esc(a.code)}</span>` : ''}</td>
           <td class="ho-nowrap">${esc(a.turma)}</td>
           <td>${esc(a.prof)}</td>
@@ -141,9 +157,30 @@
     Object.entries(tabs).forEach(([v, b]) => b.setAttribute('aria-selected', String(v === state.view)));
     $week.hidden = state.view !== 'week';
     $list.hidden = state.view !== 'list';
+    renderAgendaBar();
   }
 
-  $term.addEventListener('change', () => { state.term = $term.value; renderGroups(); render(); });
+  function renderAgendaBar() {
+    const single = state.term !== ALL;
+    $addall.innerHTML = single && /^\d\d$/.test(state.group) && !state.q.trim()
+      ? `<button type="button" class="ho-addall" id="ho-addall-btn">+ Pôr todas do ${groupLabel(state.group)} na agenda</button>` : '';
+    const n = AG.count();
+    $mine.hidden = !single;
+    $mine.textContent = n ? `Sua agenda de ${termName(AG.term())}: ${n} ${n === 1 ? 'disciplina' : 'disciplinas'} ↓` : 'Sua agenda está vazia ↓';
+  }
+
+  function onTerm() { if (state.term !== ALL) AG.setTerm(state.term); }
+  [$week, $list].forEach(el => el.addEventListener('click', e => {
+    const b = e.target.closest('button[data-ak]'); if (b) AG.toggle(b.dataset.ak);
+  }));
+  $addall.addEventListener('click', e => {
+    if (!e.target.closest('#ho-addall-btn')) return;
+    const n = AG.addGroup(state.group);
+    EA.toast(n ? EA.t('ag.addall.done', { n }) : EA.t('ag.addall.none'));
+  });
+  document.addEventListener('agendachange', render);
+
+  $term.addEventListener('change', () => { state.term = $term.value; onTerm(); renderGroups(); render(); });
   $q.addEventListener('input', () => { state.q = $q.value; render(); });
   $groups.addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
@@ -202,6 +239,7 @@
   document.getElementById('ho-pdfs').innerHTML = H.terms.map(t =>
     `<li><a href="${esc(t.pdf)}" target="_blank" rel="noopener">${termName(t.id)}</a> <span>atualizado em ${t.upd}</span></li>`).join('');
 
+  onTerm();
   renderGroups();
   render();
   // O conteúdo é montado depois do carregamento; refaz o salto para a âncora (#docentes, #fontes).

@@ -3,118 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Horários 2026.2 · Engenharia Agrícola Unipampa</title>
-  <meta name="description" content="Monte sua semana com as turmas de Engenharia Agrícola da Unipampa Alegrete em 2026/2, veja choques de horário e exporte para Google Agenda, Apple Calendário, Outlook e outros aplicativos de agenda.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/agenda.css">
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <title>Horários e agenda · Engenharia Agrícola Unipampa</title>
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="horarios.html#agenda">
+  <!-- A agenda agora faz parte de horarios.html. Links antigos (?t=2026.2&s=...) viram ?t=2026.2&a=... -->
+  <script>
+    (function () {
+      var p = new URLSearchParams(location.search);
+      if (p.has('s')) { p.set('a', p.get('s')); p.delete('s'); }
+      var q = p.toString();
+      location.replace('horarios.html' + (q ? '?' + q : '') + '#agenda');
+    })();
+  </script>
+  <meta http-equiv="refresh" content="0; url=horarios.html#agenda">
 </head>
-<body data-title-key="ag.title">
-  <header id="site-header"></header>
-  <main>
-    <section class="page-head">
-      <div class="container reveal">
-        <span class="eyebrow" id="ag-eyebrow"></span>
-        <h1 data-i18n="ag.h1"></h1>
-        <p class="lead" data-i18n="ag.lead"></p>
-        <ol class="ag-steps">
-          <li data-i18n="ag.step1"></li>
-          <li data-i18n="ag.step2"></li>
-          <li data-i18n="ag.step3"></li>
-        </ol>
-      </div>
-    </section>
-
-    <div class="container ag">
-      <div class="ag-bar no-print">
-        <label class="ag-field"><span data-i18n="ag.term"></span><select id="ag-term"></select></label>
-        <p class="ag-saved" data-i18n="ag.saved"></p>
-      </div>
-
-      <div class="ag-layout">
-        <section class="ag-offer no-print" aria-labelledby="ag-offer-h">
-          <h2 id="ag-offer-h" data-i18n="ag.offer.h"></h2>
-          <label class="ag-field ag-search"><span data-i18n="ag.search"></span><input type="search" id="ag-q" autocomplete="off" data-i18n-attr="placeholder:ag.search.ph"></label>
-          <div class="ag-groups" id="ag-groups" role="group" data-i18n-attr="aria-label:ag.groups"></div>
-          <div id="ag-addall"></div>
-          <div class="ag-list" id="ag-list"></div>
-        </section>
-
-        <section class="ag-mine" aria-labelledby="ag-mine-h">
-          <div class="ag-mine-head">
-            <h2 id="ag-mine-h" data-i18n="ag.mine.h"></h2>
-            <p class="ag-sum" id="ag-sum" aria-live="polite"></p>
-          </div>
-          <div id="ag-conflicts" aria-live="polite"></div>
-          <div id="ag-week"></div>
-          <div id="ag-days"></div>
-          <ul class="ag-chosen" id="ag-chosen"></ul>
-        </section>
-      </div>
-
-      <section class="ag-export no-print" id="exportar" aria-labelledby="ag-ex-h">
-        <span class="eyebrow" data-i18n="ag.ex.eyebrow"></span>
-        <h2 id="ag-ex-h" data-i18n="ag.ex.h"></h2>
-        <p data-i18n="ag.ex.p"></p>
-        <div class="ag-dates">
-          <label class="ag-field"><span data-i18n="ag.ex.start"></span><input type="date" id="ag-start"></label>
-          <label class="ag-field"><span data-i18n="ag.ex.end"></span><input type="date" id="ag-end"></label>
-          <label class="ag-check"><input type="checkbox" id="ag-hol"> <span data-i18n="ag.ex.hol"></span></label>
-        </div>
-        <p class="ag-hint" data-i18n="ag.ex.datehint"></p>
-        <div class="btn-row">
-          <button class="btn btn-primary" type="button" id="ag-ics"><span data-icon="download"></span><span data-i18n="ag.ex.ics"></span></button>
-          <button class="btn btn-ghost" type="button" id="ag-share"><span data-icon="globe"></span><span data-i18n="ag.ex.share"></span></button>
-          <button class="btn btn-ghost" type="button" id="ag-print"><span data-icon="print"></span><span data-i18n="ag.ex.print"></span></button>
-          <button class="btn btn-danger" type="button" id="ag-clear"><span data-icon="trash"></span><span data-i18n="ag.ex.clear"></span></button>
-        </div>
-        <div class="ag-backup">
-          <p class="ag-hint" data-i18n="ag.ex.backuphint"></p>
-          <div class="btn-row">
-            <button class="btn btn-ghost btn-sm" type="button" id="ag-backup"><span data-icon="download"></span><span data-i18n="ag.ex.backup"></span></button>
-            <button class="btn btn-ghost btn-sm" type="button" id="ag-restore"><span data-icon="upload"></span><span data-i18n="ag.ex.restore"></span></button>
-            <input type="file" id="ag-file" accept="application/json,.json" hidden>
-          </div>
-        </div>
-
-        <div class="ag-apps">
-          <details open>
-            <summary data-i18n="ag.app.google"></summary>
-            <div data-i18n="ag.app.google.body"></div>
-            <div class="ag-glinks" id="ag-glinks"></div>
-          </details>
-          <details>
-            <summary data-i18n="ag.app.apple"></summary>
-            <div data-i18n="ag.app.apple.body"></div>
-          </details>
-          <details>
-            <summary data-i18n="ag.app.ms"></summary>
-            <div data-i18n="ag.app.ms.body"></div>
-          </details>
-          <details>
-            <summary data-i18n="ag.app.other"></summary>
-            <div data-i18n="ag.app.other.body"></div>
-          </details>
-        </div>
-      </section>
-
-      <section class="ag-notes" aria-labelledby="ag-notes-h">
-        <h2 id="ag-notes-h" data-i18n="ag.notes.h"></h2>
-        <ul>
-          <li data-i18n="ag.notes.src"></li>
-          <li data-i18n="ag.notes.priv"></li>
-          <li data-i18n="ag.notes.off"></li>
-        </ul>
-      </section>
-    </div>
-  </main>
-  <footer id="site-footer"></footer>
-  <script src="data/courses.js"></script>
-  <script src="data/horarios.js"></script>
-  <script src="assets/js/app.js"></script>
-  <script src="assets/js/agenda.js"></script>
+<body>
+  <p>A agenda agora fica na página <a href="horarios.html#agenda">Horários</a>.</p>
 </body>
 </html>

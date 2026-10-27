@@ -4,7 +4,7 @@
    - Fontes do Google e bibliotecas do cdnjs (endereços com versão fixa): cópia guardada primeiro.
    - Vídeos, músicas e PDFs ficam de fora (são grandes e usam requisições parciais).
    A grade e a agenda do aluno não passam por aqui: ficam no localStorage do navegador. */
-const CACHE = 'ea-offline-v1';
+const CACHE = 'ea-offline-v2';
 const CORE = [
   './', 'index.html', 'matriz.html', 'grade.html', 'agenda.html', 'carreira.html', 'guia.html',
   'evolucao.html', 'futuro.html', 'tecnologias.html', 'horarios.html', 'manifest.webmanifest',

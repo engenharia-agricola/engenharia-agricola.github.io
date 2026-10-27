@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Horários e docentes · Engenharia Agrícola Unipampa</title>
-  <meta name="description" content="Disciplinas, horários, salas e professores das turmas de Engenharia Agrícola da Unipampa Alegrete de 2018 a 2026, e a relação de docentes do curso com link para a página de cada um.">
+  <title>Horários e agenda · Engenharia Agrícola Unipampa</title>
+  <meta name="description" content="Disciplinas, horários, salas e professores das turmas de Engenharia Agrícola da Unipampa Alegrete de 2018 a 2026, monte a sua agenda do semestre a partir deles (com aviso de choque de horário e exportação para Google Agenda, Apple e Outlook) e veja a relação de docentes do curso.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/horarios.css">
+  <link rel="stylesheet" href="assets/css/agenda.css">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 </head>
 <body data-title-key="ho.title">
@@ -19,17 +20,21 @@
       <div class="container reveal">
         <span class="eyebrow">Ofertas de 2018 a 2026</span>
         <h1>Horários, salas e professores</h1>
-        <p class="lead">Todas as turmas de Engenharia Agrícola publicadas pelo Campus Alegrete desde o segundo semestre de 2018: o que foi ofertado, em que dia e horário, em qual sala e com qual professor. Mais abaixo, a relação de docentes do curso, com link para a página de cada um.</p>
+        <p class="lead">Todas as turmas de Engenharia Agrícola publicadas pelo Campus Alegrete desde o segundo semestre de 2018: o que foi ofertado, em que dia e horário, em qual sala e com qual professor. E, a partir desses mesmos horários, a sua agenda do semestre: marque as disciplinas que vai cursar e leve tudo para o celular.</p>
         <div class="ho-facts" id="ho-facts"></div>
         <p class="ho-langnote" data-i18n="ho.langnote"></p>
-        <p class="ho-cta"><a class="btn btn-primary btn-sm" href="agenda.html">Monte sua semana de 2026/2 e leve para a agenda</a></p>
+        <ol class="ho-steps">
+          <li>Escolha o semestre e toque em <b>+ Agenda</b> nas disciplinas que vai cursar.</li>
+          <li>Confira <a href="#agenda">a sua semana</a>, com aviso de choque de horário.</li>
+          <li>Exporte para Google Agenda, Apple ou Outlook.</li>
+        </ol>
       </div>
     </section>
 
     <div class="container ho">
       <section class="reveal" id="ofertas">
         <span class="eyebrow">Ofertas</span>
-        <h2>Escolha o semestre</h2>
+        <h2>Escolha o semestre e as disciplinas</h2>
         <div class="ho-controls">
           <label class="ho-field"><span>Semestre</span><select id="ho-term"></select></label>
           <label class="ho-field ho-search"><span>Buscar disciplina, código, professor ou sala</span><input type="search" id="ho-q" placeholder="Ex.: Hidráulica, AL0296, Vilnei, A1-203" autocomplete="off"></label>
@@ -39,9 +44,81 @@
           <button type="button" role="tab" id="tab-week" aria-controls="ho-week" aria-selected="true">Semana</button>
           <button type="button" role="tab" id="tab-list" aria-controls="ho-list" aria-selected="false">Lista</button>
         </div>
-        <p class="ho-shown" id="ho-shown" aria-live="polite"></p>
+        <div class="ho-bar">
+          <p class="ho-shown" id="ho-shown" aria-live="polite"></p>
+          <div id="ho-addall"></div>
+          <a class="ho-mine" id="ho-mine" href="#agenda"></a>
+        </div>
         <div id="ho-week" role="tabpanel" aria-labelledby="tab-week"></div>
         <div id="ho-list" role="tabpanel" aria-labelledby="tab-list" hidden></div>
+      </section>
+
+      <section class="ag" id="agenda" aria-labelledby="ag-mine-h">
+        <div class="ag-mine">
+          <span class="eyebrow" id="ag-eyebrow"></span>
+          <div class="ag-mine-head">
+            <h2 id="ag-mine-h" data-i18n="ag.mine.h"></h2>
+            <p class="ag-sum" id="ag-sum" aria-live="polite"></p>
+          </div>
+          <p class="ag-saved no-print" data-i18n="ag.saved"></p>
+          <div id="ag-conflicts" aria-live="polite"></div>
+          <div id="ag-week"></div>
+          <div id="ag-days"></div>
+          <ul class="ag-chosen" id="ag-chosen"></ul>
+        </div>
+
+        <section class="ag-export no-print" id="exportar" aria-labelledby="ag-ex-h">
+          <span class="eyebrow" data-i18n="ag.ex.eyebrow"></span>
+          <h2 id="ag-ex-h" data-i18n="ag.ex.h"></h2>
+          <p data-i18n="ag.ex.p"></p>
+          <div class="ag-dates">
+            <label class="ag-field"><span data-i18n="ag.ex.start"></span><input type="date" id="ag-start"></label>
+            <label class="ag-field"><span data-i18n="ag.ex.end"></span><input type="date" id="ag-end"></label>
+            <label class="ag-check"><input type="checkbox" id="ag-hol"> <span data-i18n="ag.ex.hol"></span></label>
+          </div>
+          <p class="ag-hint" data-i18n="ag.ex.datehint"></p>
+          <div class="btn-row">
+            <button class="btn btn-primary" type="button" id="ag-ics"><span data-icon="download"></span><span data-i18n="ag.ex.ics"></span></button>
+            <button class="btn btn-ghost" type="button" id="ag-share"><span data-icon="globe"></span><span data-i18n="ag.ex.share"></span></button>
+            <button class="btn btn-ghost" type="button" id="ag-print"><span data-icon="print"></span><span data-i18n="ag.ex.print"></span></button>
+            <button class="btn btn-danger" type="button" id="ag-clear"><span data-icon="trash"></span><span data-i18n="ag.ex.clear"></span></button>
+          </div>
+          <div class="ag-backup">
+            <p class="ag-hint" data-i18n="ag.ex.backuphint"></p>
+            <div class="btn-row">
+              <button class="btn btn-ghost btn-sm" type="button" id="ag-backup"><span data-icon="download"></span><span data-i18n="ag.ex.backup"></span></button>
+              <button class="btn btn-ghost btn-sm" type="button" id="ag-restore"><span data-icon="upload"></span><span data-i18n="ag.ex.restore"></span></button>
+              <input type="file" id="ag-file" accept="application/json,.json" hidden>
+            </div>
+          </div>
+
+          <div class="ag-apps">
+            <details open>
+              <summary data-i18n="ag.app.google"></summary>
+              <div data-i18n="ag.app.google.body"></div>
+              <div class="ag-glinks" id="ag-glinks"></div>
+            </details>
+            <details>
+              <summary data-i18n="ag.app.apple"></summary>
+              <div data-i18n="ag.app.apple.body"></div>
+            </details>
+            <details>
+              <summary data-i18n="ag.app.ms"></summary>
+              <div data-i18n="ag.app.ms.body"></div>
+            </details>
+            <details>
+              <summary data-i18n="ag.app.other"></summary>
+              <div data-i18n="ag.app.other.body"></div>
+            </details>
+          </div>
+        </section>
+
+        <div class="ag-notes no-print">
+          <ul>
+            <li data-i18n="ag.notes.priv"></li>
+            <li data-i18n="ag.notes.off"></li>
+          </ul>
+        </div>
       </section>
 
       <section class="reveal" id="docentes">
@@ -69,6 +146,7 @@
   <script src="data/courses.js"></script>
   <script src="data/horarios.js"></script>
   <script src="assets/js/app.js"></script>
+  <script src="assets/js/agenda.js"></script>
   <script src="assets/js/horarios.js"></script>
 </body>
 </html>

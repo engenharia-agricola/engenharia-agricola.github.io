@@ -309,6 +309,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .reels-head p { color: var(--muted); margin: 0; }
 .clips.reels { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 300px)); justify-content: center; }
 .clips.reels .clip video { aspect-ratio: 9 / 16; }
+.songs { list-style: none; margin: 32px auto 0; padding: 0; max-width: 760px; display: grid; gap: 14px; }
+.song { display: grid; gap: 8px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.song-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; }
+.song-head span { color: var(--muted); }
+.song-head .song-time { margin-left: auto; font-variant-numeric: tabular-nums; }
+.song audio { width: 100%; }
+.song-dl { justify-self: start; font-size: .85rem; font-weight: 600; }
 
 /* ---------- Page header ---------- */
 .page-head { padding: 48px 0 24px; }

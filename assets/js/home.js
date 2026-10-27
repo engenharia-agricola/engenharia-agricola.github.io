@@ -26,6 +26,14 @@
     'home.reel.r2': ['Versão curta', 'Short version', 'Versión corta'],
     'home.reel.aria1': ['Reel Raiz e Engrenagem, versão completa', 'Raiz e Engrenagem reel, full version', 'Reel Raiz e Engrenagem, versión completa'],
     'home.reel.aria2': ['Reel Raiz e Engrenagem, versão curta', 'Raiz e Engrenagem reel, short version', 'Reel Raiz e Engrenagem, versión corta'],
+    'home.mus.h3': ['Músicas do curso', 'Program songs', 'Canciones de la carrera'],
+    'home.mus.lead': [
+      'As canções dos clipes e reels, para ouvir aqui ou baixar.',
+      'The songs from the clips and reels, to play here or download (in Portuguese).',
+      'Las canciones de los clips y reels, para escuchar acá o descargar (en portugués).'
+    ],
+    'home.mus.instr': ['(instrumental)', '(instrumental)', '(instrumental)'],
+    'home.mus.dl': ['Baixar MP3', 'Download MP3', 'Descargar MP3'],
     'home.eyebrow': ['PPC interativo · versão 2024', 'Interactive curriculum · 2024 version', 'PPC interactivo · versión 2024'],
     'home.h1': ['Engenharia que faz o campo <em>funcionar</em>.', 'Engineering that makes farming <em>work</em>.', 'Ingeniería que hace <em>funcionar</em> el campo.'],
     'home.lead': [
