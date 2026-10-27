@@ -175,6 +175,7 @@
     'nav.history': ['Evolução do PPC', 'PPC history', 'Evolución del PPC'],
     'nav.future': ['PPC do futuro', 'Future PPC', 'PPC del futuro'],
     'nav.tech': ['IA no campo', 'AI in the field', 'IA en el campo'],
+    'nav.agenda': ['Horários 2026.2', '2026.2 timetable', 'Horarios 2026.2'],
     'nav.schedule': ['Horários e docentes', 'Schedules and faculty', 'Horarios y docentes'],
     'nav.menu': ['Abrir menu', 'Open menu', 'Abrir menú'],
     'nav.theme': ['Alternar tema claro/escuro', 'Toggle light/dark theme', 'Cambiar tema claro/oscuro'],
@@ -202,13 +203,15 @@
       'Fuente: <a href="ppc/ppc_engenharia_agricola_2024.pdf">PPC 2014, actualización de mayo de 2024</a> (versión de junio/2024). Ante cualquier duda, prevalecen el documento oficial y la Coordinación de la Carrera. <a href="evolucao.html#documentos">Todas las versiones del PPC</a>.'
     ],
     'footer.explore': ['Explore', 'Explore', 'Explorar'],
+    'off.offline': ['Você está sem internet. O site continua funcionando, e sua grade e sua agenda seguem salvas neste aparelho.', 'You are offline. The site keeps working, and your plan and timetable stay saved on this device.', 'Estás sin internet. El sitio sigue funcionando, y tu plan y tu agenda siguen guardados en este dispositivo.'],
+    'off.online': ['Conexão de volta.', 'Back online.', 'Conexión restablecida.'],
     'footer.contact': ['Contato', 'Contact', 'Contacto'],
     'footer.addr': ['Av. Tiarajú, 810 – Ibirapuitã<br>Alegrete – RS, 97546-550<br>(55) 3421-8400<br>alegrete@unipampa.edu.br', 'Av. Tiarajú, 810 – Ibirapuitã<br>Alegrete – RS, Brazil, 97546-550<br>+55 55 3421-8400<br>alegrete@unipampa.edu.br', 'Av. Tiarajú, 810 – Ibirapuitã<br>Alegrete – RS, Brasil, 97546-550<br>+55 55 3421-8400<br>alegrete@unipampa.edu.br']
   });
 
   /* ---------------- Cabeçalho e rodapé ---------------- */
   const PAGES = [
-    ['index.html', 'nav.home'], ['matriz.html', 'nav.matrix'], ['grade.html', 'nav.planner'],
+    ['index.html', 'nav.home'], ['matriz.html', 'nav.matrix'], ['grade.html', 'nav.planner'], ['agenda.html', 'nav.agenda'],
     ['carreira.html', 'nav.career'], ['guia.html', 'nav.guide'], ['evolucao.html', 'nav.history'], ['futuro.html', 'nav.future']
   ];
   // páginas que só aparecem no rodapé (o menu do topo já está no limite de largura)
@@ -298,15 +301,34 @@
     clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('show'), 2600);
   }
 
+  /* ---------------- Uso sem internet ---------------- */
+  // O service worker (sw.js) guarda as páginas no aparelho; os dados do aluno ficam no localStorage.
+  function initOffline() {
+    if (!document.querySelector('link[rel="manifest"]')) {
+      const m = document.createElement('link'); m.rel = 'manifest'; m.href = 'manifest.webmanifest'; document.head.appendChild(m);
+      const c = document.createElement('meta'); c.name = 'theme-color'; c.content = '#2e7d32'; document.head.appendChild(c);
+    }
+    if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
+      addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => { /* sem cache offline */ }));
+    }
+    addEventListener('offline', () => toast(t('off.offline')));
+    addEventListener('online', () => toast(t('off.online')));
+  }
+  /** Pede ao navegador que não apague os dados salvos quando faltar espaço (grade e agenda). */
+  function persist() {
+    try { if (navigator.storage && navigator.storage.persist) navigator.storage.persisted().then(p => p || navigator.storage.persist()); } catch (e) { /* sem suporte */ }
+  }
+
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   window.EA = {
     add, t, L, apply, setLang, get lang() { return lang; }, ICONS, AREAS, DATA, BY, store, toast, esc,
-    initReveal, areaName: a => L(AREAS[a] && AREAS[a].name), cname: c => L(c.name)
+    initReveal, persist, areaName: a => L(AREAS[a] && AREAS[a].name), cname: c => L(c.name)
   };
 
   document.addEventListener('DOMContentLoaded', () => {
     renderChrome();
+    initOffline();
     document.querySelectorAll('[data-icon]').forEach(el => { el.innerHTML = ICONS[el.dataset.icon] || ''; });
     apply();
     initReveal();

@@ -7,6 +7,7 @@ Site estático e trilíngue (PT · EN · ES) que explica o **Projeto Pedagógico
 | `index.html` | Visão geral: clipe do curso em duas versões (com legendas), dois reels verticais “Raiz e Engrenagem”, números do curso, jornada animada do 1º ao 10º semestre, divisão das 3.985 h, requisitos para se formar e “dicionário do calouro”. |
 | `matriz.html` | Matriz curricular por semestre com mapa de pré-requisitos (linhas animadas), ementas, filtros por área e catálogo das 48 CCCGs. Link direto para uma disciplina: `matriz.html?c=AL0010`. |
 | `grade.html` | “Monte sua grade”: planejamento por semestre (arrastar/soltar ou botão +), validação de pré-requisitos e limites de 120–540 h, escolha de CCCGs, calculadora de ACGs com a tabela do PPC, checklist de formatura e láurea. Salvo no `localStorage`; exporta em PDF, PNG, XLSX, CSV e JSON (o JSON pode ser importado de volta). XLSX e PDF usam SheetJS e jsPDF, carregados do cdnjs só quando o usuário exporta. |
+| `agenda.html` | “Horários 2026.2”: o aluno marca as turmas do semestre (dados de `data/horarios.js`), vê a semana em grade (lista por dia no celular), os choques de horário e a carga semanal. A escolha fica no `localStorage`, separada por semestre, com backup/restauração em JSON e link para compartilhar. Exporta `.ics` (Google Agenda, Apple, Outlook/Microsoft 365 e outros), com aulas semanais entre as datas escolhidas e feriados nacionais e do RS pulados (`EXDATE`), além de links diretos “adicionar ao Google Agenda” por aula. |
 | `carreira.html` | Campos de atuação do Engenheiro Agrícola: cena animada, cadeia “do campo à mesa”, seis áreas com disciplinas relacionadas, teste vocacional, mercado de trabalho e competências das DCNs. |
 | `evolucao.html` | Evolução do PPC de 2013 a 2024: linha do tempo das cinco versões, composição da carga horária, ficha técnica, mudanças nas disciplinas, sugestões sobre IA e links para os PDFs de todas as versões (`evolucao.html#documentos`). Conteúdo só em português. |
 | `futuro.html` | Proposta exploratória de PPC para 2027 em diante, pensado para um mundo com IA: princípios, perfil do egresso, carga de 3.900 h, matriz em quatro ciclos com filtro por tipo de componente, eixo de dados e IA, ateliês de projeto, trilhas, níveis de uso de IA na avaliação, implantação e riscos. Conteúdo só em português; não é documento oficial. |
@@ -25,6 +26,8 @@ assets/js/course-ui.js   painel com detalhes da disciplina
 assets/js/*.js           um script por página (textos traduzidos ficam junto)
 assets/video/            clipe do curso em duas versões (MP4 720p), dois reels verticais (MP4 720×1280), pôsteres e legendas WebVTT (compartilhadas)
 ppc/                     PDFs de todas as versões do PPC (ppc_engenharia_agricola_<ano>.pdf; 2023 tem _03 e _12)
+sw.js                    service worker: guarda páginas, CSS, JS e dados para uso sem internet (vídeos, músicas e PDFs ficam de fora)
+manifest.webmanifest     permite instalar o site como aplicativo (ícones em assets/img/icon-*.png)
 data/courses.js          disciplinas extraídas do PPC (nome, CH, T/P, pré-requisitos, ementa em PT/EN/ES)
 data/horarios.js         turmas de EA por semestre (disciplina, turma, professor, sala, horário) e docentes do curso
 tools/                   scripts usados para extrair os dados do PDF do PPC e dos PDFs de horários (horarios_*.py)

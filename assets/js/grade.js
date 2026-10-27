@@ -8,9 +8,9 @@
     'pl.eyebrow': ['Planejador de semestres', 'Semester planner', 'Planificador de semestres'],
     'pl.h1': ['Monte a sua grade', 'Build your own plan', 'Armá tu propio plan'],
     'pl.lead': [
-      'Organize as disciplinas por semestre, escolha suas CCCGs e registre suas ACGs. O planejador avisa quando falta algum pré-requisito ou quando a carga do semestre passa do limite. Tudo fica salvo só no seu navegador.',
-      'Arrange courses by semester, pick your electives and log your complementary activities. The planner warns you when a prerequisite is missing or a semester goes over the limit. Everything is saved only in your browser.',
-      'Organizá las asignaturas por semestre, elegí tus CCCG y registrá tus ACG. El planificador te avisa cuando falta una correlativa o cuando el semestre supera el límite. Todo se guarda solo en tu navegador.'
+      'Organize as disciplinas por semestre, escolha suas CCCGs e registre suas ACGs. O planejador avisa quando falta algum pré-requisito ou quando a carga do semestre passa do limite. Tudo fica salvo só no seu navegador, e a página funciona mesmo sem internet depois da primeira visita.',
+      'Arrange courses by semester, pick your electives and log your complementary activities. The planner warns you when a prerequisite is missing or a semester goes over the limit. Everything is saved only in your browser, and the page works offline after your first visit.',
+      'Organizá las asignaturas por semestre, elegí tus CCCG y registrá tus ACG. El planificador te avisa cuando falta una correlativa o cuando el semestre supera el límite. Todo se guarda solo en tu navegador, y la página funciona sin internet después de la primera visita.'
     ],
     'pl.tab.plan': ['Minha grade', 'My plan', 'Mi plan'],
     'pl.tab.acg': ['Minhas ACGs', 'My activities (ACG)', 'Mis ACG'],
@@ -165,7 +165,7 @@
       .map(a => ({ id: a.id || Math.random().toString(36).slice(2), item: a.item, qty: Math.min(9999, +a.qty || 1), group: [1, 2, 3, 4].includes(+a.group) ? +a.group : 1, desc: String(a.desc || '').slice(0, 120) }));
     return { sems, done: s.done && typeof s.done === 'object' ? s.done : {}, acg, target: Math.min(Math.max(0, +s.target || 0), sems.length - 1) };
   }
-  function save() { store.set(KEY, JSON.stringify(S)); }
+  function save() { store.set(KEY, JSON.stringify(S)); EA.persist(); }
 
   /* ---------- regras ---------- */
   const where = code => S.sems.findIndex(l => l.includes(code));

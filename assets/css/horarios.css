@@ -17,6 +17,7 @@
 .ho .eyebrow { margin-bottom: 0; }
 .ho section { display: grid; gap: 20px; min-width: 0; scroll-margin-top: 80px; }
 .ho-langnote:empty { display: none; }
+.ho-cta { margin-top: 20px; }
 .ho-langnote { margin-top: 16px; padding: 10px 14px; border-radius: var(--radius-sm); background: var(--warn-soft); color: var(--ink); font-size: .9rem; max-width: 62ch; }
 
 /* Números de destaque */

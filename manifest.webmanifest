@@ -1,0 +1,16 @@
+{
+  "name": "Engenharia Agrícola · Unipampa Alegrete",
+  "short_name": "Eng. Agrícola",
+  "description": "PPC interativo, grade e horários do curso de Engenharia Agrícola da Unipampa, também sem internet.",
+  "lang": "pt-BR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f4ec",
+  "theme_color": "#2e7d32",
+  "icons": [
+    { "src": "assets/img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
