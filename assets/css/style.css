@@ -305,6 +305,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .clip video { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius); box-shadow: var(--shadow-lg); background: #000; }
 .clip figcaption { display: flex; justify-content: space-between; gap: 12px; margin-top: 10px; color: var(--muted); }
 .clip figcaption strong { color: var(--ink); }
+.reels-head { margin-top: 56px; }
+.reels-head p { color: var(--muted); margin: 0; }
+.clips.reels { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 300px)); justify-content: center; }
+.clips.reels .clip video { aspect-ratio: 9 / 16; }
 
 /* ---------- Page header ---------- */
 .page-head { padding: 48px 0 24px; }

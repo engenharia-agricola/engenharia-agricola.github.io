@@ -16,6 +16,16 @@
     'home.v.v2': ['Versão 2', 'Version 2', 'Versión 2'],
     'home.v.aria1': ['Clipe do curso de Engenharia Agrícola da Unipampa, versão 1', 'Unipampa Agricultural Engineering program clip, version 1', 'Clip de la carrera de Ingeniería Agrícola de la Unipampa, versión 1'],
     'home.v.aria2': ['Clipe do curso de Engenharia Agrícola da Unipampa, versão 2', 'Unipampa Agricultural Engineering program clip, version 2', 'Clip de la carrera de Ingeniería Agrícola de la Unipampa, versión 2'],
+    'home.reel.h3': ['Reels: Raiz e Engrenagem', 'Reels: Raiz e Engrenagem (Root and Gear)', 'Reels: Raiz e Engrenagem (Raíz y Engranaje)'],
+    'home.reel.lead': [
+      'Dois reels verticais, pensados para o celular e para as redes sociais.',
+      'Two vertical reels, made for phones and social media (in Portuguese).',
+      'Dos reels verticales, pensados para el celular y las redes sociales (en portugués).'
+    ],
+    'home.reel.r1': ['Versão completa', 'Full version', 'Versión completa'],
+    'home.reel.r2': ['Versão curta', 'Short version', 'Versión corta'],
+    'home.reel.aria1': ['Reel Raiz e Engrenagem, versão completa', 'Raiz e Engrenagem reel, full version', 'Reel Raiz e Engrenagem, versión completa'],
+    'home.reel.aria2': ['Reel Raiz e Engrenagem, versão curta', 'Raiz e Engrenagem reel, short version', 'Reel Raiz e Engrenagem, versión corta'],
     'home.eyebrow': ['PPC interativo · versão 2024', 'Interactive curriculum · 2024 version', 'PPC interactivo · versión 2024'],
     'home.h1': ['Engenharia que faz o campo <em>funcionar</em>.', 'Engineering that makes farming <em>work</em>.', 'Ingeniería que hace <em>funcionar</em> el campo.'],
     'home.lead': [
