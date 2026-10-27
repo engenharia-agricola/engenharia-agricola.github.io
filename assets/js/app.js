@@ -173,6 +173,7 @@
     'nav.career': ['Carreira', 'Career', 'Carrera'],
     'nav.guide': ['Guia do estudante', 'Student guide', 'Guía del estudiante'],
     'nav.history': ['Evolução do PPC', 'PPC history', 'Evolución del PPC'],
+    'nav.future': ['PPC do futuro', 'Future PPC', 'PPC del futuro'],
     'nav.menu': ['Abrir menu', 'Open menu', 'Abrir menú'],
     'nav.theme': ['Alternar tema claro/escuro', 'Toggle light/dark theme', 'Cambiar tema claro/oscuro'],
     'nav.lang': ['Idioma', 'Language', 'Idioma'],
@@ -206,7 +207,7 @@
   /* ---------------- Cabeçalho e rodapé ---------------- */
   const PAGES = [
     ['index.html', 'nav.home'], ['matriz.html', 'nav.matrix'], ['grade.html', 'nav.planner'],
-    ['carreira.html', 'nav.career'], ['guia.html', 'nav.guide'], ['evolucao.html', 'nav.history']
+    ['carreira.html', 'nav.career'], ['guia.html', 'nav.guide'], ['evolucao.html', 'nav.history'], ['futuro.html', 'nav.future']
   ];
 
   function currentPage() {
