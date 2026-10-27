@@ -8,11 +8,14 @@
     'home.v.eyebrow': ['Conheça o curso', 'Meet the program', 'Conocé la carrera'],
     'home.v.h2': ['Engenharia que alimenta o Brasil', 'Engineering that feeds Brazil', 'Ingeniería que alimenta a Brasil'],
     'home.v.lead': [
-      'Um clipe de menos de dois minutos sobre o curso, o Pampa e o que faz um engenheiro agrícola.',
-      'A clip of under two minutes about the program, the Pampa and what an agricultural engineer does (narration and subtitles in Portuguese).',
-      'Un clip de menos de dos minutos sobre la carrera, la Pampa y lo que hace un ingeniero agrícola (narración y subtítulos en portugués).'
+      'Duas versões de um clipe de menos de dois minutos sobre o curso, o Pampa e o que faz um engenheiro agrícola.',
+      'Two versions of a clip of under two minutes about the program, the Pampa and what an agricultural engineer does (narration and subtitles in Portuguese).',
+      'Dos versiones de un clip de menos de dos minutos sobre la carrera, la Pampa y lo que hace un ingeniero agrícola (narración y subtítulos en portugués).'
     ],
-    'home.v.aria': ['Clipe do curso de Engenharia Agrícola da Unipampa', 'Unipampa Agricultural Engineering program clip', 'Clip de la carrera de Ingeniería Agrícola de la Unipampa'],
+    'home.v.v1': ['Versão 1', 'Version 1', 'Versión 1'],
+    'home.v.v2': ['Versão 2', 'Version 2', 'Versión 2'],
+    'home.v.aria1': ['Clipe do curso de Engenharia Agrícola da Unipampa, versão 1', 'Unipampa Agricultural Engineering program clip, version 1', 'Clip de la carrera de Ingeniería Agrícola de la Unipampa, versión 1'],
+    'home.v.aria2': ['Clipe do curso de Engenharia Agrícola da Unipampa, versão 2', 'Unipampa Agricultural Engineering program clip, version 2', 'Clip de la carrera de Ingeniería Agrícola de la Unipampa, versión 2'],
     'home.eyebrow': ['PPC interativo · versão 2024', 'Interactive curriculum · 2024 version', 'PPC interactivo · versión 2024'],
     'home.h1': ['Engenharia que faz o campo <em>funcionar</em>.', 'Engineering that makes farming <em>work</em>.', 'Ingeniería que hace <em>funcionar</em> el campo.'],
     'home.lead': [
