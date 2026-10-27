@@ -110,11 +110,11 @@ button, input, select, textarea { font: inherit; color: inherit; }
   backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px);
   border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
 }
-.nav { display: flex; align-items: center; gap: 16px; height: 64px; max-width: 1400px; }
+.nav { display: flex; align-items: center; gap: 16px; height: 64px; max-width: 1480px; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 800; line-height: 1.05; }
 .brand svg { width: 36px; height: 36px; flex: none; }
 .brand small { display: block; font-weight: 600; font-size: .7rem; color: var(--muted); letter-spacing: .04em; }
-@media (min-width: 1441px) { .nav .brand { flex: none; white-space: nowrap; } }
+@media (min-width: 1501px) { .nav .brand { flex: none; white-space: nowrap; } }
 .nav-links { display: flex; gap: 2px; margin-left: auto; list-style: none; padding: 0; margin-top: 0; margin-bottom: 0; }
 .nav-links a {
   display: block; padding: 8px 10px; border-radius: 999px; text-decoration: none;
@@ -135,7 +135,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 .icon-btn svg { width: 18px; height: 18px; }
 .menu-btn { display: none; }
-@media (max-width: 1440px) {
+@media (max-width: 1500px) {
   .menu-btn { display: grid; }
   .nav-links {
     position: fixed; inset: 64px 0 auto 0; flex-direction: column; gap: 4px;

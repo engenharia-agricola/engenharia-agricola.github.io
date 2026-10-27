@@ -211,10 +211,9 @@
   /* ---------------- Cabeçalho e rodapé ---------------- */
   const PAGES = [
     ['index.html', 'nav.home'], ['matriz.html', 'nav.matrix'], ['grade.html', 'nav.planner'], ['horarios.html', 'nav.schedule'],
-    ['carreira.html', 'nav.career'], ['guia.html', 'nav.guide'], ['evolucao.html', 'nav.history'], ['futuro.html', 'nav.future']
+    ['carreira.html', 'nav.career'], ['guia.html', 'nav.guide'], ['evolucao.html', 'nav.history'], ['futuro.html', 'nav.future'],
+    ['tecnologias.html', 'nav.tech']
   ];
-  // páginas que só aparecem no rodapé (o menu do topo já está no limite de largura)
-  const FOOTER_ONLY = [['tecnologias.html', 'nav.tech']];
 
   function currentPage() {
     const p = location.pathname.split('/').pop();
@@ -257,7 +256,7 @@
             <p data-i18n="footer.about"></p>
             <p><small data-i18n="footer.source"></small></p>
           </div>
-          <div><h4 data-i18n="footer.explore"></h4><ul>${PAGES.concat(FOOTER_ONLY).map(([h, k]) => `<li><a href="${h}" data-i18n="${k}"></a></li>`).join('')}</ul></div>
+          <div><h4 data-i18n="footer.explore"></h4><ul>${PAGES.map(([h, k]) => `<li><a href="${h}" data-i18n="${k}"></a></li>`).join('')}</ul></div>
           <div><h4 data-i18n="footer.contact"></h4><p data-i18n="footer.addr"></p></div>
         </div>`;
     }
