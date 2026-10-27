@@ -6,12 +6,15 @@
 
 .fu {
   --core: #3d7a3a;       /* núcleo de engenharia */
-  --aix: #6a4bb5;        /* dados e IA */
+  --ia: #6d28d9;         /* destaque das disciplinas com IA */
+  --ia-ink: #ffffff;     /* texto sobre --ia */
+  --ia-soft: #ede4fc;    /* fundo das disciplinas que usam IA */
+  --aix: var(--ia);      /* dados e IA */
   --proj: #c8861a;       /* ateliês com extensão */
   --track: #2c6c8c;      /* trilhas */
   --res: #8b5a2b;        /* estágio e TCC */
   --acg: #cfc9bd;
-  --ai: #6a4bb5;
+  --ai: var(--ia);
   --ai-soft: #ece6f8;
   --t1: #6a4bb5; --t2: #2c6c8c; --t3: #3d7a3a; --t4: #c8861a; --t5: #8b5a2b;
   --bar-ink: #fff;
@@ -20,15 +23,17 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .fu {
-    --core: #6fae67; --aix: #a68bea; --proj: #e3a83f; --track: #5fa6c8; --res: #c48a52; --acg: #5d5950;
-    --ai: #a68bea; --ai-soft: #2a2340;
+    --ia: #b794f6; --ia-ink: #170b2e; --ia-soft: #2e2150;
+    --core: #6fae67; --aix: #b794f6; --proj: #e3a83f; --track: #5fa6c8; --res: #c48a52; --acg: #5d5950;
+    --ai: #b794f6; --ai-soft: #2a2340;
     --t1: #a68bea; --t2: #5fa6c8; --t3: #6fae67; --t4: #e3a83f; --t5: #c48a52;
     --bar-ink: #0e1511;
   }
 }
 :root[data-theme="dark"] .fu {
-  --core: #6fae67; --aix: #a68bea; --proj: #e3a83f; --track: #5fa6c8; --res: #c48a52; --acg: #5d5950;
-  --ai: #a68bea; --ai-soft: #2a2340;
+  --ia: #b794f6; --ia-ink: #170b2e; --ia-soft: #2e2150;
+  --core: #6fae67; --aix: #b794f6; --proj: #e3a83f; --track: #5fa6c8; --res: #c48a52; --acg: #5d5950;
+  --ai: #b794f6; --ai-soft: #2a2340;
   --t1: #a68bea; --t2: #5fa6c8; --t3: #6fae67; --t4: #e3a83f; --t5: #c48a52;
   --bar-ink: #0e1511;
 }
@@ -100,14 +105,31 @@
 .fu .sem h3 { font: 600 1.1rem/1 var(--display); display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 4px; }
 .fu .sem h3 small { font: 500 .7rem/1 var(--mono); color: var(--muted); }
 .fu .c { --sw: var(--core); position: relative; min-height: calc(var(--h) * 1.1px); padding: 6px 8px; border-radius: 6px; background: color-mix(in srgb, var(--sw) 16%, var(--surface)); border-left: 4px solid var(--sw); font-size: .76rem; line-height: 1.25; font-weight: 600; color: var(--ink); hyphens: auto; overflow-wrap: anywhere; transition: opacity .2s, filter .2s; }
-.fu .c.ai { --sw: var(--aix); }
+.fu .c.ai { --sw: var(--ia); }
 .fu .c.proj { --sw: var(--proj); }
 .fu .c.track { --sw: var(--track); }
 .fu .c.res { --sw: var(--res); }
-.fu .c.ia::before, .fu .ai-mark { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--aix); box-shadow: 0 0 0 2px color-mix(in srgb, var(--aix) 30%, transparent); }
-.fu .c.ia::before { position: absolute; top: 6px; right: 6px; }
-.fu p .ai-mark { margin: 0 4px; vertical-align: 1px; }
-.fu .c.ia { padding-right: 18px; }
+/* Disciplinas com IA: roxo cheio no eixo (.ai), roxo claro com borda roxa nas que usam IA (.ia), selo em ambas. */
+.fu .c.ai { background: var(--ia); border-left-color: var(--ia); color: var(--ia-ink); }
+.fu .c.ia { --sw: var(--ia); background: var(--ia-soft); outline: 2px solid var(--ia); outline-offset: -2px; }
+.fu .c.ai, .fu .c.ia { padding-top: 24px; }
+.fu .c.ai::after, .fu .c.ia::after { content: var(--ia-label, "IA"); position: absolute; top: 5px; left: 8px; }
+.fu .ia-tag, .fu .c.ai::after, .fu .c.ia::after { display: inline-block; font: 800 .62rem/1 var(--font); letter-spacing: .06em; padding: 3px 6px; border-radius: 99px; background: var(--ia); color: var(--ia-ink); }
+.fu .c.ai::after { background: var(--ia-ink); color: var(--ia); }
+.fu p .ia-tag { vertical-align: 1px; margin: 0 2px; }
+
+/* Legenda das disciplinas com IA */
+.fu-ia-key { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 10px 20px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); }
+.fu-ia-key > div { display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: center; }
+.fu-ia-key .sw { height: 36px; border-radius: 6px; display: grid; place-items: start; padding: 5px 6px; }
+.fu-ia-key .k-axis .sw { background: var(--ia); }
+.fu-ia-key .k-axis .ia-tag { background: var(--ia-ink); color: var(--ia); }
+.fu-ia-key .k-use .sw { background: var(--ia-soft); outline: 2px solid var(--ia); outline-offset: -2px; }
+.fu-ia-key .k-none .sw { background: color-mix(in srgb, var(--core) 16%, var(--surface)); border-left: 4px solid var(--core); }
+.fu-ia-key p { display: grid; gap: 2px; font-size: .85rem; color: var(--muted); }
+.fu-ia-key p b { color: var(--ink); font-size: .92rem; }
+.fu-ia-key .fu-ia-count { grid-column: 1 / -1; display: block; max-width: none; padding-top: 10px; border-top: 1px solid var(--line); font-size: .92rem; color: var(--ink); }
+.fu-ia-key .fu-ia-count b { color: var(--ia); }
 .fu-matrix[data-f]:not([data-f="all"]) .c { opacity: .22; filter: grayscale(.6); }
 .fu-matrix[data-f="core"] .c.core,
 .fu-matrix[data-f="ai"] .c.ai,

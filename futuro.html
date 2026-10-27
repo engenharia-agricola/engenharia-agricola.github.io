@@ -143,7 +143,13 @@
       <section class="reveal" id="matriz">
         <span class="eyebrow">Matriz proposta</span>
         <h2>Dez semestres, quatro ciclos</h2>
-        <p>A altura de cada bloco é proporcional à carga horária. Use os filtros para destacar um tipo de componente. O símbolo <span class="ai-mark" aria-hidden="true"></span> indica disciplina de engenharia com uso de IA previsto na ementa.</p>
+        <p>A altura de cada bloco é proporcional à carga horária. As disciplinas com IA aparecem em roxo e levam o selo <span class="ia-tag" data-i18n="fu.ia.tag"></span>. Use os filtros para destacar um tipo de componente.</p>
+        <div class="fu-ia-key" aria-label="Legenda das cores de IA">
+          <div class="k-axis"><span class="sw"><span class="ia-tag" data-i18n="fu.ia.tag"></span></span><p><b data-i18n="fu.ia.axis"></b><span data-i18n="fu.ia.axis.d"></span></p></div>
+          <div class="k-use"><span class="sw"><span class="ia-tag" data-i18n="fu.ia.tag"></span></span><p><b data-i18n="fu.ia.use"></b><span data-i18n="fu.ia.use.d"></span></p></div>
+          <div class="k-none"><span class="sw"></span><p><b data-i18n="fu.ia.none"></b><span data-i18n="fu.ia.none.d"></span></p></div>
+          <p class="fu-ia-count" id="fu-ia-count" aria-live="polite"></p>
+        </div>
         <div class="fu-filter" role="group" aria-label="Destacar tipo de componente">
           <button type="button" data-f="all" aria-pressed="true">Tudo</button>
           <button type="button" data-f="core" aria-pressed="false"><i class="s-core"></i>Núcleo</button>
@@ -151,7 +157,7 @@
           <button type="button" data-f="proj" aria-pressed="false"><i class="s-proj"></i>Ateliês</button>
           <button type="button" data-f="track" aria-pressed="false"><i class="s-track"></i>Trilhas</button>
           <button type="button" data-f="res" aria-pressed="false"><i class="s-res"></i>Estágio e TCC</button>
-          <button type="button" data-f="aimark" aria-pressed="false"><span class="ai-mark" aria-hidden="true"></span>IA nas disciplinas</button>
+          <button type="button" data-f="aimark" aria-pressed="false"><span class="ia-tag" aria-hidden="true" data-i18n="fu.ia.tag"></span>Todas com IA</button>
         </div>
         <div class="fu-matrix-wrap">
           <div class="fu-cycles">
@@ -234,7 +240,7 @@
               <div class="c proj" style="--h:75">Ateliê VIII · Implantar</div>
             </div>
             <div class="sem"><h3>9º <small>390 h</small></h3>
-              <div class="c core" style="--h:45">Ética, Legislação e Responsabilidade Técnica com IA</div>
+              <div class="c core ia" style="--h:45">Ética, Legislação e Responsabilidade Técnica com IA</div>
               <div class="c core ia" style="--h:45">Perícias e Avaliações</div>
               <div class="c core" style="--h:60">Gestão do Agronegócio</div>
               <div class="c core" style="--h:30">Segurança do Trabalho</div>
@@ -323,7 +329,7 @@
             </thead>
             <tbody>
               <tr><td>Carga horária total</td><td>3985 h</td><td>4170 h</td><td class="hi">3900 h</td></tr>
-              <tr><td>Dados e IA</td><td>Algoritmos (1 disciplina)</td><td>Algoritmos + Instrumentação e Automação</td><td class="hi">Eixo de 270 h + IA em 16 disciplinas</td></tr>
+              <tr><td>Dados e IA</td><td>Algoritmos (1 disciplina)</td><td>Algoritmos + Instrumentação e Automação</td><td class="hi">Eixo de 270 h + IA em 17 disciplinas</td></tr>
               <tr><td>Projeto</td><td>Projetos Integrados (30 h)</td><td>Projeto Integrado I e II (300 h)</td><td class="hi">8 ateliês, um por semestre (420 h)</td></tr>
               <tr><td>Extensão</td><td>não há</td><td>420 h</td><td>390 h, dentro dos ateliês</td></tr>
               <tr><td>Espaço de escolha</td><td>270 h CCCG + 150 h ACG</td><td>120 h CCCG + 60 h ACG</td><td class="hi">330 h em trilhas + 90 h ACG</td></tr>
