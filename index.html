@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Engenharia Agrícola · Unipampa</title>
+  <meta name="description" content="PPC interativo do curso de Engenharia Agrícola da Unipampa – Campus Alegrete: matriz curricular, monte sua grade, campos de atuação e guia do estudante, em português, inglês e espanhol.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+</head>
+<body data-title-key="home.title">
+  <header id="site-header"></header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="reveal">
+            <span class="eyebrow" data-i18n="home.eyebrow"></span>
+            <h1 data-i18n="home.h1"></h1>
+            <p class="lead" data-i18n="home.lead"></p>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="matriz.html"><span data-i18n="home.cta.matrix"></span><span data-icon="arrow"></span></a>
+              <a class="btn btn-ghost" href="grade.html"><span data-icon="puzzle"></span><span data-i18n="home.cta.plan"></span></a>
+              <a class="btn btn-ghost" href="carreira.html"><span data-icon="rocket"></span><span data-i18n="home.cta.career"></span></a>
+            </div>
+          </div>
+          <div class="hero-scene reveal" data-delay="2" aria-hidden="true">
+            <svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice">
+              <circle class="sun" cx="320" cy="62" r="30" fill="#f6c343"/>
+              <g class="cloud" opacity=".9"><ellipse cx="60" cy="60" rx="34" ry="12" fill="#fff"/><ellipse cx="78" cy="52" rx="20" ry="12" fill="#fff"/></g>
+              <g class="cloud c2" opacity=".75"><ellipse cx="40" cy="96" rx="26" ry="9" fill="#fff"/><ellipse cx="54" cy="90" rx="14" ry="9" fill="#fff"/></g>
+              <!-- drone -->
+              <g class="drone">
+                <rect x="190" y="88" width="26" height="8" rx="3" fill="#33424a"/>
+                <line x1="180" y1="86" x2="226" y2="86" stroke="#33424a" stroke-width="2"/>
+                <ellipse cx="180" cy="84" rx="9" ry="2" fill="#7f8c8d" opacity=".8"/><ellipse cx="226" cy="84" rx="9" ry="2" fill="#7f8c8d" opacity=".8"/>
+                <path d="M203 96 l-14 40 h28 Z" fill="#f6c343" opacity=".18"/>
+              </g>
+              <!-- wind turbine -->
+              <g transform="translate(70 120)">
+                <rect x="-2" y="0" width="4" height="80" fill="#e8ecef"/>
+                <g class="blade"><path d="M0 0 L-3 -34 L3 -34 Z M0 0 L28 18 L25 22 Z M0 0 L-28 18 L-25 22 Z" fill="#f4f6f8"/><circle r="4" fill="#cfd8dc"/></g>
+              </g>
+              <!-- hills -->
+              <path d="M0 210 C 80 170, 160 190, 230 175 S 360 160, 400 180 V320 H0 Z" fill="#8fc46a"/>
+              <path d="M0 240 C 90 215, 200 235, 280 220 S 380 215, 400 222 V320 H0 Z" fill="#5ea548"/>
+              <!-- silo + barn -->
+              <g transform="translate(300 160)">
+                <rect x="0" y="10" width="26" height="54" fill="#d5dbe0"/><path d="M0 10 a13 13 0 0 1 26 0" fill="#b0bec5"/>
+                <rect x="30" y="30" width="44" height="34" fill="#c0392b"/><path d="M26 32 L52 12 L78 32 Z" fill="#922b21"/>
+                <rect x="45" y="44" width="14" height="20" fill="#fff" opacity=".85"/>
+              </g>
+              <!-- solar panels -->
+              <g transform="translate(150 196)">
+                <path d="M0 18 L10 0 H44 L34 18 Z" fill="#1f4e79"/><path d="M5 9 H39 M17 0 L7 18 M27 0 L17 18" stroke="#6fa8dc" stroke-width="1"/>
+                <rect x="20" y="18" width="3" height="9" fill="#555"/>
+              </g>
+              <!-- crop rows -->
+              <g fill="#3c7d2d">
+                <g class="sway"><path d="M30 268 q4 -18 8 0 Z"/></g><g class="sway"><path d="M60 270 q4 -18 8 0 Z"/></g>
+                <g class="sway"><path d="M90 268 q4 -18 8 0 Z"/></g><g class="sway"><path d="M120 270 q4 -18 8 0 Z"/></g>
+                <g class="sway"><path d="M150 268 q4 -18 8 0 Z"/></g><g class="sway"><path d="M180 270 q4 -18 8 0 Z"/></g>
+                <g class="sway"><path d="M210 268 q4 -18 8 0 Z"/></g><g class="sway"><path d="M240 270 q4 -18 8 0 Z"/></g>
+                <g class="sway"><path d="M270 268 q4 -18 8 0 Z"/></g><g class="sway"><path d="M300 270 q4 -18 8 0 Z"/></g>
+                <g class="sway"><path d="M330 268 q4 -18 8 0 Z"/></g><g class="sway"><path d="M360 270 q4 -18 8 0 Z"/></g>
+              </g>
+              <!-- irrigation pivot -->
+              <g transform="translate(20 236)">
+                <line x1="0" y1="0" x2="130" y2="0" stroke="#90a4ae" stroke-width="3"/>
+                <path d="M0 0 L0 22 M44 0 L44 22 M88 0 L88 22 M130 0 L130 22" stroke="#78909c" stroke-width="2"/>
+                <g fill="#4fc3f7"><circle class="drop" cx="22" cy="4" r="2"/><circle class="drop d2" cx="66" cy="4" r="2"/><circle class="drop d3" cx="110" cy="4" r="2"/><circle class="drop d2" cx="34" cy="4" r="2"/><circle class="drop" cx="96" cy="4" r="2"/></g>
+              </g>
+              <!-- tractor -->
+              <g class="tractor">
+                <g transform="translate(0 262)">
+                  <rect x="10" y="8" width="44" height="18" rx="3" fill="#e67e22"/>
+                  <rect x="34" y="-10" width="20" height="20" rx="2" fill="#e67e22"/><rect x="38" y="-6" width="12" height="10" fill="#d6eaf8"/>
+                  <rect x="16" y="-2" width="4" height="10" fill="#555"/>
+                  <g class="wheel"><circle cx="46" cy="28" r="13" fill="#263238"/><circle cx="46" cy="28" r="5" fill="#f6c343"/><rect x="45" y="16" width="2" height="24" fill="#455a64"/></g>
+                  <g class="wheel"><circle cx="16" cy="32" r="8" fill="#263238"/><circle cx="16" cy="32" r="3" fill="#f6c343"/><rect x="15" y="25" width="2" height="14" fill="#455a64"/></g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat reveal"><b data-count="3985">0</b><span data-i18n="home.stat.hours"></span></div>
+          <div class="stat reveal" data-delay="1"><b data-count="10">0</b><span data-i18n="home.stat.sem"></span></div>
+          <div class="stat reveal" data-delay="2"><b data-count="62">0</b><span data-i18n="home.stat.ob"></span></div>
+          <div class="stat reveal" data-delay="3"><b data-count="48">0</b><span data-i18n="home.stat.cccg"></span></div>
+          <div class="stat reveal" data-delay="4"><b data-count="25">0</b><span data-i18n="home.stat.seats"></span></div>
+          <div class="stat reveal" data-delay="5"><b data-count="5">0</b><span data-i18n="home.stat.areas"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIP -->
+    <section class="section" id="clipe">
+      <div class="container">
+        <div class="center reveal">
+          <span class="eyebrow" data-i18n="home.v.eyebrow"></span>
+          <h2 data-i18n="home.v.h2"></h2>
+          <p class="lead" data-i18n="home.v.lead"></p>
+        </div>
+        <div class="clip reveal">
+          <video controls playsinline preload="none" poster="assets/video/ea_unipampa_clip.jpg" data-i18n-attr="aria-label:home.v.aria">
+            <source src="assets/video/ea_unipampa_clip.mp4" type="video/mp4">
+            <track kind="subtitles" src="assets/video/ea_unipampa_clip.pt.vtt" srclang="pt" label="Português">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section class="section" id="jornada">
+      <div class="container">
+        <div class="center reveal">
+          <span class="eyebrow" data-i18n="home.j.eyebrow"></span>
+          <h2 data-i18n="home.j.h2"></h2>
+          <p class="lead" data-i18n="home.j.lead"></p>
+        </div>
+        <div class="journey" id="journey">
+          <div class="journey-track"></div><div class="journey-fill" id="journey-fill"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOURS DONUT -->
+    <section class="section" style="background:var(--bg-2)">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow" data-i18n="home.d.eyebrow"></span>
+          <h2 data-i18n="home.d.h2"></h2>
+          <p class="lead" data-i18n="home.d.lead"></p>
+        </div>
+        <div class="donut-wrap reveal" style="margin-top:28px">
+          <svg id="donut" viewBox="0 0 220 220" role="img" data-i18n-attr="aria-label:home.d.aria"></svg>
+          <ul class="legend" id="donut-legend"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- REQUIREMENTS -->
+    <section class="section">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow" data-i18n="home.r.eyebrow"></span>
+          <h2 data-i18n="home.r.h2"></h2>
+          <p class="lead" data-i18n="home.r.lead"></p>
+        </div>
+        <div class="grid grid-3" style="margin-top:28px" id="reqs"></div>
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section class="section" style="background:var(--bg-2)" id="glossario">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow" data-i18n="home.g.eyebrow"></span>
+          <h2 data-i18n="home.g.h2"></h2>
+          <p class="lead" data-i18n="home.g.lead"></p>
+        </div>
+        <input type="search" class="glossary-search" id="gloss-search" data-i18n-attr="placeholder:home.g.search;aria-label:home.g.search">
+        <div class="grid grid-4" id="glossary"></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-3">
+          <a class="card tile reveal" href="matriz.html"><span class="tile-ico" data-icon="grid"></span><h3 data-i18n="home.t1.h"></h3><p class="muted" data-i18n="home.t1.p"></p><span class="go" data-i18n="home.t.go"></span></a>
+          <a class="card tile reveal" data-delay="1" href="grade.html"><span class="tile-ico" data-icon="puzzle"></span><h3 data-i18n="home.t2.h"></h3><p class="muted" data-i18n="home.t2.p"></p><span class="go" data-i18n="home.t.go"></span></a>
+          <a class="card tile reveal" data-delay="2" href="guia.html"><span class="tile-ico" data-icon="compass"></span><h3 data-i18n="home.t3.h"></h3><p class="muted" data-i18n="home.t3.p"></p><span class="go" data-i18n="home.t.go"></span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="data/courses.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>

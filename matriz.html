@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matriz curricular · Engenharia Agrícola Unipampa</title>
+  <meta name="description" content="Matriz curricular interativa do curso de Engenharia Agrícola da Unipampa: disciplinas por semestre, pré-requisitos, ementas e CCCGs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+</head>
+<body data-title-key="mx.title">
+  <header id="site-header"></header>
+  <main>
+    <section class="page-head">
+      <div class="container reveal">
+        <span class="eyebrow" data-i18n="mx.eyebrow"></span>
+        <h1 data-i18n="mx.h1"></h1>
+        <p class="lead" data-i18n="mx.lead"></p>
+      </div>
+    </section>
+
+    <section class="section-sm" style="padding-top:8px">
+      <div class="container">
+        <div class="toolbar">
+          <input type="search" id="mx-search" data-i18n-attr="placeholder:mx.search;aria-label:mx.search">
+          <div class="seg" role="group" style="flex:0 0 auto">
+            <button type="button" id="view-map" aria-pressed="true" data-i18n="mx.view.map"></button>
+            <button type="button" id="view-list" aria-pressed="false" data-i18n="mx.view.list"></button>
+          </div>
+          <label class="switch"><input type="checkbox" id="mx-all"><span data-i18n="mx.all"></span></label>
+        </div>
+        <div class="filters" id="mx-filters" style="margin-bottom:8px"></div>
+        <div class="hint-bar" id="mx-hint">
+          <span><span data-icon="info" style="display:inline-block;width:16px;vertical-align:-3px"></span> <span data-i18n="mx.hint"></span></span>
+          <span><i></i><span data-i18n="mx.leg.pre"></span></span>
+          <span><i class="post"></i><span data-i18n="mx.leg.post"></span></span>
+        </div>
+        <div class="matrix-scroll" id="mx-scroll">
+          <div class="matrix" id="matrix">
+            <svg class="matrix-lines" id="mx-lines"></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cccgs" style="background:var(--bg-2)">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow" data-i18n="mx.c.eyebrow"></span>
+          <h2 data-i18n="mx.c.h2"></h2>
+          <p class="lead" data-i18n="mx.c.lead"></p>
+        </div>
+        <div class="toolbar" style="margin-top:20px">
+          <input type="search" id="cc-search" data-i18n-attr="placeholder:mx.c.search;aria-label:mx.c.search">
+          <select id="cc-sort" class="field" style="width:auto">
+            <option value="name" data-i18n="mx.c.sort.name"></option>
+            <option value="hours" data-i18n="mx.c.sort.hours"></option>
+            <option value="area" data-i18n="mx.c.sort.area"></option>
+          </select>
+        </div>
+        <div class="filters" id="cc-filters" style="margin-bottom:16px"></div>
+        <p class="muted" id="cc-count" style="font-size:.9rem"></p>
+        <div class="catalog" id="catalog"></div>
+        <div class="callout" style="margin-top:24px" data-i18n="mx.c.note"></div>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="data/courses.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/course-ui.js"></script>
+  <script src="assets/js/matriz.js"></script>
+</body>
+</html>

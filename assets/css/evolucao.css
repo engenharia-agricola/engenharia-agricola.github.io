@@ -1,0 +1,145 @@
+/* ==========================================================================
+   Evolução do PPC: estilos próprios da página, todos sob .evo para não
+   colidir com style.css. Cores dos "talhões" de carga horária e trilha do
+   tempo em três linhagens.
+   ========================================================================== */
+
+.evo {
+  --field: #3d7a3a;      /* disciplinas */
+  --soil: #8b5a2b;       /* estágio, currículo 2010 */
+  --sun: #c8861a;        /* extensão, novo PPC */
+  --evo-water: #2c6c8c;  /* TCC */
+  --clay: #a8a093;       /* CCCG */
+  --stone: #cfc9bd;      /* ACG */
+  --ai: #6a4bb5;
+  --ai-soft: #ece6f8;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  display: grid; gap: 64px; padding-bottom: 72px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .evo {
+    --field: #6fae67; --soil: #c48a52; --sun: #e3a83f; --evo-water: #5fa6c8;
+    --clay: #8a8478; --stone: #5d5950; --ai: #a68bea; --ai-soft: #2a2340;
+  }
+}
+:root[data-theme="dark"] .evo {
+  --field: #6fae67; --soil: #c48a52; --sun: #e3a83f; --evo-water: #5fa6c8;
+  --clay: #8a8478; --stone: #5d5950; --ai: #a68bea; --ai-soft: #2a2340;
+}
+
+.evo h2, .evo h3 { text-wrap: balance; margin: 0; }
+.evo p { margin: 0; max-width: 68ch; }
+.evo .eyebrow { margin-bottom: 0; }
+.evo .num { font-variant-numeric: tabular-nums; }
+.evo section { display: grid; gap: 20px; }
+.evo .note { font-size: .85rem; color: var(--muted); }
+.evo-langnote:empty { display: none; }
+.evo-langnote { margin-top: 16px; padding: 10px 14px; border-radius: var(--radius-sm); background: var(--warn-soft); color: var(--ink); font-size: .9rem; max-width: 62ch; }
+
+/* Números de destaque */
+.evo-facts { display: flex; flex-wrap: wrap; gap: 8px 32px; margin-top: 24px; }
+.evo-facts div { display: grid; }
+.evo-facts b { font: 600 1.6rem/1.15 var(--display); color: var(--brand); font-variant-numeric: tabular-nums; }
+.evo-facts span { font-size: .85rem; color: var(--muted); font-weight: 600; }
+
+/* Linha do tempo */
+.evo .lanes { overflow-x: auto; padding-bottom: 6px; }
+.evo .timeline { display: grid; grid-template-columns: 1fr 70px 1fr 1fr 1fr 1fr; gap: 12px; min-width: 760px; }
+.evo .lane-label { grid-column: 1 / -1; font: 600 .75rem/1 var(--font); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: flex; gap: 16px; flex-wrap: wrap; }
+.evo .lane-label i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.evo .gap { display: grid; place-items: center; text-align: center; font: 500 .72rem/1.3 var(--mono); color: var(--muted); border-top: 2px dashed var(--line); margin-top: 22px; padding-top: 8px; }
+.evo .ver { background: var(--surface); border: 1px solid var(--line); border-top: 5px solid var(--c); border-radius: var(--radius-sm); padding: 14px; display: grid; gap: 6px; align-content: start; }
+.evo .ver .date { font: 500 .78rem/1 var(--mono); color: var(--c); }
+.evo .ver h3 { font-size: 1rem; }
+.evo .ver p { font-size: .85rem; color: var(--muted); }
+.evo .pill { justify-self: start; font: 500 .7rem/1 var(--mono); padding: 4px 7px; border-radius: 99px; background: color-mix(in srgb, var(--c) 16%, transparent); color: var(--c); }
+.evo .ver .pdf { justify-self: start; display: inline-flex; align-items: center; gap: 4px; font-size: .8rem; font-weight: 700; color: var(--c); text-decoration: none; }
+.evo .ver .pdf:hover { text-decoration: underline; }
+.evo .pdf svg, .evo-docs svg { width: 16px; height: 16px; }
+.evo .v-old { --c: var(--soil); }
+.evo .v-14 { --c: var(--field); }
+.evo .v-new { --c: var(--sun); }
+
+/* Documentos para download */
+.evo-docs { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.evo-docs a { display: grid; grid-template-columns: 6px 1fr auto; gap: 14px; align-items: center; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--ink); text-decoration: none; transition: border-color .15s, transform .15s; }
+.evo-docs a:hover { border-color: var(--c); transform: translateX(4px); }
+.evo-docs a::before { content: ""; align-self: stretch; border-radius: 3px; background: var(--c); }
+.evo-docs b { display: block; }
+.evo-docs small { color: var(--muted); font-size: .85rem; }
+.evo-docs .dl { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; font-weight: 700; color: var(--c); white-space: nowrap; }
+
+/* Barras de carga horária */
+.evo-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .82rem; color: var(--muted); }
+.evo-legend span::before { content: ""; display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; vertical-align: -2px; background: var(--sw); }
+.evo-bars { display: grid; gap: 18px; }
+.evo .bar-row { display: grid; grid-template-columns: 150px 1fr; gap: 12px; align-items: center; }
+.evo .bar-row .lbl { font-size: .85rem; line-height: 1.3; }
+.evo .bar-row .lbl b { display: block; font-size: 1rem; }
+.evo .bar { display: flex; height: 38px; border-radius: 4px; overflow: hidden; }
+.evo .bar > div { flex: var(--h) 0 0; background: var(--sw); color: #fff; font: 500 .7rem/38px var(--mono); text-align: center; white-space: nowrap; overflow: hidden; border-right: 1px solid var(--bg); }
+.evo .bar > div.dark-text { color: #1c241e; }
+.evo .total { font: 600 .85rem/1 var(--mono); margin-top: 6px; display: block; }
+.evo .s-disc { --sw: var(--field); }
+.evo .s-ext { --sw: var(--sun); }
+.evo .s-tcc { --sw: var(--evo-water); }
+.evo .s-est { --sw: var(--soil); }
+.evo .s-cccg { --sw: var(--clay); }
+.evo .s-acg { --sw: var(--stone); }
+
+/* Tabela comparativa */
+.evo .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); }
+.evo table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: .9rem; }
+.evo th, .evo td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+.evo th { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.evo td.num, .evo th.num { text-align: right; }
+.evo tr:last-child td { border-bottom: 0; }
+.evo td:first-child { font-weight: 600; }
+.evo .up { color: var(--field); font-weight: 700; }
+.evo .down { color: var(--soil); font-weight: 700; }
+
+/* De → para */
+.evo .swap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+.evo .swap { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 16px; display: grid; gap: 10px; align-content: start; }
+.evo .swap h3 { display: flex; align-items: center; gap: 8px; font-size: 1.05rem; }
+.evo .swap svg { width: 22px; height: 22px; flex: none; }
+.evo .swap ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: .88rem; }
+.evo .swap li { display: grid; grid-template-columns: 1fr 18px 1fr; gap: 6px; align-items: start; }
+.evo .swap li .from { color: var(--muted); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--muted) 50%, transparent); }
+.evo .swap li .arrow { color: var(--muted); text-align: center; }
+.evo .swap li .to { font-weight: 600; }
+.evo .swap li.new .from { text-decoration: none; font-style: italic; }
+
+/* Destaques */
+.evo .callouts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 14px; }
+.evo .callout { border-left: 4px solid var(--c, var(--field)); padding: 4px 0 4px 14px; display: grid; gap: 4px; }
+.evo .callout b { font-size: 1.05rem; }
+.evo .callout p { font-size: .9rem; color: var(--muted); }
+
+/* Bloco IA */
+.evo .ai-band { background: var(--ai-soft); border-radius: var(--radius); padding: 28px clamp(16px, 4vw, 36px); display: grid; gap: 24px; }
+.evo .ai-band h2 { color: var(--ai); }
+.evo .zero { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.evo .zero div { background: var(--surface); border-radius: var(--radius-sm); padding: 12px; display: grid; gap: 2px; }
+.evo .zero b { font: 600 1.8rem/1 var(--display); }
+.evo .zero span { font-size: .8rem; color: var(--muted); }
+.evo .shift { display: grid; gap: 10px; }
+.evo .shift-row { display: grid; grid-template-columns: 170px 1fr 1fr; gap: 12px; background: var(--surface); border-radius: var(--radius-sm); padding: 12px 14px; font-size: .9rem; }
+.evo .shift-row.head { background: transparent; padding-block: 0; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.evo .shift-row > div:first-child { font-weight: 700; }
+.evo .shift-row > div:last-child { color: var(--ai); }
+.evo .proposals { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 14px; counter-reset: p; }
+.evo .prop { background: var(--surface); border-radius: var(--radius-sm); padding: 16px; display: grid; gap: 8px; align-content: start; counter-increment: p; }
+.evo .prop h3 { font-size: 1.05rem; }
+.evo .prop h3::before { content: counter(p) ". "; color: var(--ai); }
+.evo .prop p, .evo .prop li { font-size: .88rem; }
+.evo .prop ul { margin: 0; padding-left: 18px; display: grid; gap: 3px; }
+.evo .tag { justify-self: start; font: 500 .68rem/1 var(--mono); padding: 4px 7px; border-radius: 99px; background: var(--ai-soft); color: var(--ai); }
+
+.evo .sources { font-size: .82rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 18px; display: grid; gap: 6px; }
+
+@media (max-width: 640px) {
+  .evo .bar-row { grid-template-columns: 1fr; gap: 6px; }
+  .evo .shift-row { grid-template-columns: 1fr; gap: 4px; }
+  .evo .shift-row.head { display: none; }
+}

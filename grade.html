@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monte sua grade · Engenharia Agrícola Unipampa</title>
+  <meta name="description" content="Planeje seus semestres no curso de Engenharia Agrícola da Unipampa: escolha disciplinas e CCCGs, confira pré-requisitos e acompanhe suas ACGs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+</head>
+<body data-title-key="pl.title">
+  <header id="site-header"></header>
+  <main>
+    <section class="page-head">
+      <div class="container reveal">
+        <span class="eyebrow" data-i18n="pl.eyebrow"></span>
+        <h1 data-i18n="pl.h1"></h1>
+        <p class="lead" data-i18n="pl.lead"></p>
+      </div>
+    </section>
+
+    <section class="section-sm" style="padding-top:12px">
+      <div class="container">
+        <div class="progress-row" id="progress"></div>
+
+        <div class="tabs no-print" role="tablist">
+          <button role="tab" id="tab-plan" aria-selected="true" aria-controls="panel-plan" data-i18n="pl.tab.plan"></button>
+          <button role="tab" id="tab-acg" aria-selected="false" aria-controls="panel-acg" data-i18n="pl.tab.acg"></button>
+          <button role="tab" id="tab-sum" aria-selected="false" aria-controls="panel-sum" data-i18n="pl.tab.sum"></button>
+        </div>
+
+        <!-- GRADE -->
+        <div class="tabpanel" id="panel-plan" role="tabpanel" aria-labelledby="tab-plan">
+          <div class="btn-row no-print" style="margin-bottom:16px">
+            <button class="btn btn-primary btn-sm" type="button" id="btn-suggest"><span data-icon="wand"></span><span data-i18n="pl.suggest"></span></button>
+            <button class="btn btn-ghost btn-sm" type="button" id="btn-addsem"><span data-icon="plus"></span><span data-i18n="pl.addsem"></span></button>
+            <div class="dropdown" id="export-dd">
+              <button class="btn btn-ghost btn-sm" type="button" id="btn-export" aria-haspopup="menu" aria-expanded="false" aria-controls="export-menu"><span data-icon="download"></span><span data-i18n="pl.export"></span><span data-icon="chevron" class="dd-chev"></span></button>
+              <div class="dropdown-menu" id="export-menu" role="menu" hidden>
+                <button type="button" role="menuitem" data-fmt="pdf"><b>PDF</b><span data-i18n="ex.pdf"></span></button>
+                <button type="button" role="menuitem" data-fmt="png"><b>PNG</b><span data-i18n="ex.png"></span></button>
+                <button type="button" role="menuitem" data-fmt="xlsx"><b>XLSX</b><span data-i18n="ex.xlsx"></span></button>
+                <button type="button" role="menuitem" data-fmt="csv"><b>CSV</b><span data-i18n="ex.csv"></span></button>
+                <button type="button" role="menuitem" data-fmt="json"><b>JSON</b><span data-i18n="ex.json"></span></button>
+              </div>
+            </div>
+            <label class="btn btn-ghost btn-sm" style="cursor:pointer"><span data-icon="upload"></span><span data-i18n="pl.import"></span><input type="file" id="file-import" accept="application/json,.json" hidden></label>
+            <button class="btn btn-ghost btn-sm" type="button" id="btn-print"><span data-icon="print"></span><span data-i18n="pl.print"></span></button>
+            <button class="btn btn-danger btn-sm" type="button" id="btn-clear"><span data-icon="trash"></span><span data-i18n="pl.clear"></span></button>
+          </div>
+          <div class="callout green no-print" id="howto" data-i18n="pl.howto"></div>
+          <div class="planner" style="margin-top:16px">
+            <aside class="card pool" aria-label="pool">
+              <div class="pool-head">
+                <div class="seg" role="group">
+                  <button type="button" data-type="ob" aria-pressed="true" data-i18n="pl.pool.ob"></button>
+                  <button type="button" data-type="cccg" aria-pressed="false" data-i18n="pl.pool.cccg"></button>
+                </div>
+                <input type="search" id="pool-search" data-i18n-attr="placeholder:pl.pool.search;aria-label:pl.pool.search">
+                <select id="pool-area" data-i18n-attr="aria-label:cu.area"></select>
+                <label style="font-size:.8rem;font-weight:700;color:var(--muted);display:grid;gap:4px"><span data-i18n="pl.pool.target"></span>
+                  <select id="pool-target"></select></label>
+                <label class="switch" style="font-size:.8rem"><input type="checkbox" id="pool-avail"><span data-i18n="pl.pool.avail"></span></label>
+              </div>
+              <div class="pool-list" id="pool-list"></div>
+            </aside>
+            <div class="board" id="board"></div>
+          </div>
+        </div>
+
+        <!-- ACG -->
+        <div class="tabpanel" id="panel-acg" role="tabpanel" aria-labelledby="tab-acg" hidden>
+          <p class="lead" data-i18n="acg.lead"></p>
+          <div class="card">
+            <form class="acg-form" id="acg-form">
+              <label class="wide"><span data-i18n="acg.f.type"></span><select id="acg-item" class="field"></select></label>
+              <label><span id="acg-qty-lbl" data-i18n="acg.f.qty"></span><input type="number" id="acg-qty" class="field" min="1" value="1" required></label>
+              <label><span data-i18n="acg.f.group"></span><select id="acg-group" class="field"></select></label>
+              <button class="btn btn-primary" type="submit"><span data-icon="plus"></span><span data-i18n="acg.f.add"></span></button>
+              <label class="wide" style="grid-column:1/-1"><span data-i18n="acg.f.desc"></span><input type="text" id="acg-desc" class="field" maxlength="120" data-i18n-attr="placeholder:acg.f.desc.ph"></label>
+            </form>
+            <p class="muted" id="acg-preview" style="margin:10px 0 0;font-size:.88rem"></p>
+          </div>
+          <div class="acg-groups" id="acg-groups"></div>
+          <div class="card table-wrap"><table class="tbl" id="acg-table"></table></div>
+          <div class="callout" style="margin-top:16px" data-i18n="acg.note"></div>
+        </div>
+
+        <!-- SUMMARY -->
+        <div class="tabpanel" id="panel-sum" role="tabpanel" aria-labelledby="tab-sum" hidden>
+          <div class="grid grid-2" id="summary"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="data/courses.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/course-ui.js"></script>
+  <script src="assets/js/grade.js"></script>
+  <script src="assets/js/grade-export.js"></script>
+</body>
+</html>
