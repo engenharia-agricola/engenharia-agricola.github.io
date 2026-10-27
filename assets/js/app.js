@@ -174,6 +174,8 @@
     'nav.guide': ['Guia do estudante', 'Student guide', 'Guía del estudiante'],
     'nav.history': ['Evolução do PPC', 'PPC history', 'Evolución del PPC'],
     'nav.future': ['PPC do futuro', 'Future PPC', 'PPC del futuro'],
+    'nav.tech': ['IA no campo', 'AI in the field', 'IA en el campo'],
+    'nav.schedule': ['Horários e docentes', 'Schedules and faculty', 'Horarios y docentes'],
     'nav.menu': ['Abrir menu', 'Open menu', 'Abrir menú'],
     'nav.theme': ['Alternar tema claro/escuro', 'Toggle light/dark theme', 'Cambiar tema claro/oscuro'],
     'nav.lang': ['Idioma', 'Language', 'Idioma'],
@@ -209,6 +211,8 @@
     ['index.html', 'nav.home'], ['matriz.html', 'nav.matrix'], ['grade.html', 'nav.planner'],
     ['carreira.html', 'nav.career'], ['guia.html', 'nav.guide'], ['evolucao.html', 'nav.history'], ['futuro.html', 'nav.future']
   ];
+  // páginas que só aparecem no rodapé (o menu do topo já está no limite de largura)
+  const FOOTER_ONLY = [['tecnologias.html', 'nav.tech'], ['horarios.html', 'nav.schedule']];
 
   function currentPage() {
     const p = location.pathname.split('/').pop();
@@ -251,7 +255,7 @@
             <p data-i18n="footer.about"></p>
             <p><small data-i18n="footer.source"></small></p>
           </div>
-          <div><h4 data-i18n="footer.explore"></h4><ul>${PAGES.map(([h, k]) => `<li><a href="${h}" data-i18n="${k}"></a></li>`).join('')}</ul></div>
+          <div><h4 data-i18n="footer.explore"></h4><ul>${PAGES.concat(FOOTER_ONLY).map(([h, k]) => `<li><a href="${h}" data-i18n="${k}"></a></li>`).join('')}</ul></div>
           <div><h4 data-i18n="footer.contact"></h4><p data-i18n="footer.addr"></p></div>
         </div>`;
     }

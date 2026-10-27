@@ -1,0 +1,96 @@
+/* ==========================================================================
+   Horários e docentes: estilos próprios da página, todos sob .ho (e .ho-*)
+   para não colidir com style.css.
+   ========================================================================== */
+
+.ho {
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --k-sem: var(--brand);
+  --k-CG: var(--gold);
+  --k-Extra: var(--water);
+  --k-Rec: var(--danger);
+  display: grid; gap: 64px; padding-bottom: 72px;
+}
+.ho h2, .ho h3 { text-wrap: balance; margin: 0; }
+.ho p { margin: 0; }
+.ho section > p { max-width: 68ch; }
+.ho .eyebrow { margin-bottom: 0; }
+.ho section { display: grid; gap: 20px; min-width: 0; scroll-margin-top: 80px; }
+.ho-langnote:empty { display: none; }
+.ho-langnote { margin-top: 16px; padding: 10px 14px; border-radius: var(--radius-sm); background: var(--warn-soft); color: var(--ink); font-size: .9rem; max-width: 62ch; }
+
+/* Números de destaque */
+.ho-facts { display: flex; flex-wrap: wrap; gap: 8px 32px; margin-top: 24px; }
+.ho-facts div { display: grid; }
+.ho-facts b { font: 600 1.6rem/1.15 var(--display); color: var(--brand); font-variant-numeric: tabular-nums; }
+.ho-facts span { font-size: .85rem; color: var(--muted); font-weight: 600; }
+
+/* Controles */
+.ho-controls { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: end; }
+.ho-field { display: grid; gap: 6px; font-size: .8rem; font-weight: 700; color: var(--muted); }
+.ho-field select, .ho-field input { font: 500 1rem/1.2 var(--font); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 10px 16px; min-width: 0; }
+.ho-field select { padding-right: 32px; }
+.ho-search { flex: 1 1 280px; }
+.ho-groups { display: flex; flex-wrap: wrap; gap: 8px; }
+.ho-groups button, .ho-tabs button { font: 600 .85rem/1 var(--font); padding: 8px 12px; border-radius: 99px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.ho-groups button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.ho-tabs { display: inline-flex; gap: 0; border: 1px solid var(--line); border-radius: 99px; padding: 3px; justify-self: start; background: var(--surface); }
+.ho-tabs button { border: 0; background: none; padding: 8px 18px; }
+.ho-tabs button[aria-selected="true"] { background: var(--brand); color: var(--brand-ink); }
+.ho-shown { font-size: .85rem; color: var(--muted); }
+.ho-shown:empty { display: none; }
+.ho-empty { padding: 24px; border: 1px dashed var(--line); border-radius: var(--radius-sm); color: var(--muted); text-align: center; }
+
+/* Semana */
+.ho-week { display: grid; grid-template-columns: repeat(var(--days), minmax(0, 1fr)); gap: 10px; align-items: start; }
+.ho-day { display: grid; gap: 8px; min-width: 0; }
+.ho-day h3 { font: 700 .8rem/1 var(--font); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-bottom: 8px; border-bottom: 2px solid var(--line); }
+.ho-free { font-size: .85rem; color: var(--muted); padding: 6px 0; }
+.ho-card { --k: var(--k-sem); background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--k); border-radius: var(--radius-sm); padding: 10px 12px; display: grid; gap: 4px; min-width: 0; overflow-wrap: anywhere; }
+.ho-card[data-kind="CG"] { --k: var(--k-CG); }
+.ho-card[data-kind="Extra"] { --k: var(--k-Extra); }
+.ho-card[data-kind="Rec"] { --k: var(--k-Rec); }
+.ho-card h4 { margin: 0; font-size: .95rem; line-height: 1.25; }
+.ho-card h4 a { color: inherit; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); }
+.ho-time { font: 600 .78rem/1 var(--mono); color: var(--k); }
+.ho-meta, .ho-room { font-size: .8rem; color: var(--muted); }
+.ho-prof { font-size: .85rem; font-weight: 600; }
+.ho-code { font: 500 .75rem/1 var(--mono); color: var(--muted); }
+@media (max-width: 900px) {
+  .ho-week { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .ho-week { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+}
+
+/* Lista */
+.ho-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); }
+.ho-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.ho-table th { text-align: left; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 10px 12px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--surface); }
+.ho-table td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.ho-table tr:last-child td { border-bottom: 0; }
+.ho-table td a { color: inherit; font-weight: 600; }
+.ho-nowrap { white-space: nowrap; }
+@media (max-width: 720px) {
+  .ho-table-wrap { border: 0; background: none; overflow: visible; }
+  .ho-table, .ho-table tbody, .ho-table tr, .ho-table td { display: block; }
+  .ho-table thead { display: none; }
+  .ho-table tr { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 8px 12px; margin-bottom: 10px; }
+  .ho-table td { border: 0; padding: 3px 0; }
+}
+
+/* Docentes */
+.ho-doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 12px; }
+.ho-doc { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px 16px; display: grid; gap: 6px; align-content: start; }
+.ho-doc h3 { font-size: 1.02rem; line-height: 1.3; }
+.ho-doc h3 a { color: inherit; }
+.ho-doc-title { font-size: .8rem; color: var(--muted); }
+.ho-doc-discs { font-size: .85rem; }
+.ho-doc-links { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; margin-top: 4px; font-size: .85rem; font-weight: 600; }
+.ho-doc-links button { font: 600 .8rem/1 var(--font); padding: 6px 10px; border-radius: 99px; border: 1px solid var(--line); background: none; color: var(--brand); cursor: pointer; }
+.ho-doc-links button:hover { border-color: var(--brand); }
+
+/* Fontes */
+.ho-notes { margin: 0; padding-left: 20px; display: grid; gap: 8px; max-width: 76ch; }
+.ho-pdfs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 6px 16px; font-size: .9rem; }
+.ho-pdfs span { color: var(--muted); font-size: .8rem; }

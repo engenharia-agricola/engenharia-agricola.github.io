@@ -10,6 +10,8 @@ Site estático e trilíngue (PT · EN · ES) que explica o **Projeto Pedagógico
 | `carreira.html` | Campos de atuação do Engenheiro Agrícola: cena animada, cadeia “do campo à mesa”, seis áreas com disciplinas relacionadas, teste vocacional, mercado de trabalho e competências das DCNs. |
 | `evolucao.html` | Evolução do PPC de 2013 a 2024: linha do tempo das cinco versões, composição da carga horária, ficha técnica, mudanças nas disciplinas, sugestões sobre IA e links para os PDFs de todas as versões (`evolucao.html#documentos`). Conteúdo só em português. |
 | `futuro.html` | Proposta exploratória de PPC para 2027 em diante, pensado para um mundo com IA: princípios, perfil do egresso, carga de 3.900 h, matriz em quatro ciclos com filtro por tipo de componente, eixo de dados e IA, ateliês de projeto, trilhas, níveis de uso de IA na avaliação, implantação e riscos. Conteúdo só em português; não é documento oficial. |
+| `tecnologias.html` | IA no campo: catálogo de 24 tecnologias baseadas em IA por área do EA e estágio no Brasil (com filtros), mapa maturidade × impacto, tarefas que encolhem, mudam ou surgem, três horizontes de futuro, barreiras, contexto do Pampa e como se preparar. Fica no rodapé, não no menu do topo. Conteúdo só em português. |
+| `horarios.html` | Horários, salas e professores das turmas de EA de 2018/2 a 2026/2 (16 semestres, extraídos dos PDFs do campus), com vista semanal por semestre do curso, lista filtrável (inclusive todos os semestres juntos) e relação dos docentes do curso com link para a página de cada um na Unipampa e para o Lattes. Fica no rodapé. Link direto para uma busca: `horarios.html?q=Vilnei`. Conteúdo só em português. |
 | `guia.html` | Regras do curso em linguagem simples: aprovação, carga por semestre, trancamento, CCCG, ACG, TCC, estágio, dispensa, láurea, ingresso e apoio ao estudante. |
 
 O idioma pode ser escolhido no topo da página ou pela URL (`?lang=pt|en|es`).
@@ -24,7 +26,8 @@ assets/js/*.js           um script por página (textos traduzidos ficam junto)
 assets/video/            clipe do curso (MP4 720p), pôster e legendas WebVTT
 ppc/                     PDFs de todas as versões do PPC (ppc_engenharia_agricola_<ano>.pdf; 2023 tem _03 e _12)
 data/courses.js          disciplinas extraídas do PPC (nome, CH, T/P, pré-requisitos, ementa em PT/EN/ES)
-tools/                   scripts usados para extrair os dados do PDF do PPC
+data/horarios.js         turmas de EA por semestre (disciplina, turma, professor, sala, horário) e docentes do curso
+tools/                   scripts usados para extrair os dados do PDF do PPC e dos PDFs de horários (horarios_*.py)
 ```
 
 Não há etapa de build: basta publicar a pasta no GitHub Pages (o arquivo `.nojekyll` já está incluído). Para testar localmente: `python3 -m http.server` e abrir `http://localhost:8000`.

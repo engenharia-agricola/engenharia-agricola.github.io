@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IA no campo · Engenharia Agrícola Unipampa</title>
+  <meta name="description" content="Presente e futuro da Engenharia Agrícola com a inteligência artificial: tecnologias que já existem, como elas mudam o trabalho do engenheiro agrícola e o que deve chegar nos próximos anos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/tecnologias.css">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+</head>
+<body data-title-key="te.title">
+  <header id="site-header"></header>
+  <main>
+    <section class="page-head">
+      <div class="container reveal">
+        <span class="eyebrow">Presente e futuro da profissão</span>
+        <h1>IA no campo: o que já existe, o que muda e o que vem aí</h1>
+        <p class="lead">Drones que pulverizam sozinhos, pulverizadores que enxergam a planta daninha, previsão do tempo feita por redes neurais e assistentes que escrevem relatórios. Esta página mapeia as tecnologias baseadas em IA que já estão no campo, o que elas mudam no trabalho do engenheiro agrícola e o que deve chegar nos próximos anos.</p>
+        <div class="te-facts">
+          <div><b>24</b><span>tecnologias mapeadas</span></div>
+          <div><b>6</b><span>áreas de atuação do EA</span></div>
+          <div><b id="te-count-uso">14</b><span>já em uso no Brasil</span></div>
+          <div><b>3</b><span>horizontes de futuro</span></div>
+        </div>
+        <p class="te-langnote" data-i18n="te.langnote"></p>
+      </div>
+    </section>
+
+    <div class="container te">
+      <!-- RESUMO -->
+      <section class="reveal">
+        <span class="eyebrow">Em uma frase</span>
+        <h2>A IA não chega como uma máquina nova, chega dentro de todas elas</h2>
+        <p>Quase nenhuma dessas tecnologias substitui sozinha o engenheiro agrícola. O que ela faz é mudar o tipo de trabalho: menos cálculo repetitivo, contagem e digitação, mais configuração de sistemas, validação de modelos, integração de dados e responsabilidade pela decisão final.</p>
+        <div class="te-kinds">
+          <div><b>Visão computacional</b><p>Câmeras e modelos que reconhecem plantas, daninhas, falhas, grãos e animais.</p></div>
+          <div><b>Sensores e previsão</b><p>Dados de solo, clima, máquina e silo alimentando modelos que antecipam o que vai acontecer.</p></div>
+          <div><b>Autonomia</b><p>Máquinas, drones e robôs que executam a operação com supervisão humana a distância.</p></div>
+          <div><b>IA generativa e agentes</b><p>Modelos de linguagem que escrevem, programam, consultam normas e executam tarefas encadeadas.</p></div>
+        </div>
+      </section>
+
+      <!-- CATÁLOGO -->
+      <section class="reveal" id="catalogo">
+        <span class="eyebrow">O que já existe</span>
+        <h2>24 tecnologias, por área de atuação</h2>
+        <p>Cada cartão diz o que a tecnologia faz, dá exemplos reais e resume o que muda para o engenheiro agrícola. O estágio indica a situação no Brasil em 2026, em avaliação nossa.</p>
+        <div class="te-filters">
+          <div class="te-filter" role="group" aria-label="Filtrar por área" data-key="area">
+            <button type="button" data-v="all" aria-pressed="true">Todas as áreas</button>
+            <button type="button" data-v="mach" aria-pressed="false"><i data-area="mach"></i>Máquinas</button>
+            <button type="button" data-v="water" aria-pressed="false"><i data-area="water"></i>Água e irrigação</button>
+            <button type="button" data-v="geo" aria-pressed="false"><i data-area="geo"></i>Geotecnologias</button>
+            <button type="button" data-v="post" aria-pressed="false"><i data-area="post"></i>Pós-colheita</button>
+            <button type="button" data-v="build" aria-pressed="false"><i data-area="build"></i>Construções e ambiência</button>
+            <button type="button" data-v="mgmt" aria-pressed="false"><i data-area="mgmt"></i>Gestão e dados</button>
+          </div>
+          <div class="te-filter" role="group" aria-label="Filtrar por estágio" data-key="stage">
+            <button type="button" data-v="all" aria-pressed="true">Todos os estágios</button>
+            <button type="button" data-v="uso" aria-pressed="false"><span class="st st-uso"></span>Em uso no Brasil</button>
+            <button type="button" data-v="chegando" aria-pressed="false"><span class="st st-chegando"></span>Chegando</button>
+            <button type="button" data-v="piloto" aria-pressed="false"><span class="st st-piloto"></span>Piloto</button>
+          </div>
+          <p class="te-shown" aria-live="polite"><span id="te-shown">24</span> tecnologias exibidas</p>
+        </div>
+
+        <div class="te-grid" id="te-grid">
+          <!-- MÁQUINAS -->
+          <article class="tech" id="t1" data-short="Piloto automático" data-area="mach" data-stage="uso" data-impact="medio">
+            <div class="meta"><span class="n">1</span><span class="ar">Máquinas</span><span class="st st-uso">Em uso no Brasil</span></div>
+            <h3>Piloto automático e direção por GNSS RTK</h3>
+            <p>A máquina segue linhas com precisão de centímetros, sem sobreposição nem falhas. É a base sobre a qual a autonomia está sendo construída.</p>
+            <p class="ex"><b>Exemplos:</b> sistemas de direção automática dos principais fabricantes de tratores, pulverizadores e colhedoras.</p>
+            <p class="ea"><b>Para o EA:</b> o operador deixa de dirigir. O engenheiro planeja as linhas, configura a rede de correção, calibra e audita a sobreposição.</p>
+          </article>
+          <article class="tech" id="t2" data-short="Pulverização seletiva" data-area="mach" data-stage="chegando" data-impact="alto">
+            <div class="meta"><span class="n">2</span><span class="ar">Máquinas</span><span class="st st-chegando">Chegando</span></div>
+            <h3>Pulverização seletiva por visão computacional</h3>
+            <p>Câmeras na barra identificam a planta daninha em tempo real e abrem só o bico necessário, em vez de aplicar em área total.</p>
+            <p class="ex"><b>Exemplos:</b> See &amp; Spray (John Deere), One Smart Spray (Bosch e BASF).</p>
+            <p class="ea"><b>Para o EA:</b> a regulagem passa a incluir a sensibilidade do modelo e a validação no campo. Surgem mapas de infestação a cada passada e uma nova conta de economia de defensivo.</p>
+          </article>
+          <article class="tech" id="t3" data-short="Drones de pulverização" data-area="mach" data-stage="uso" data-impact="alto">
+            <div class="meta"><span class="n">3</span><span class="ar">Máquinas</span><span class="st st-uso">Em uso no Brasil</span></div>
+            <h3>Drones de pulverização e semeadura</h3>
+            <p>Drones de grande porte aplicam defensivos, fertilizantes e sementes com rota planejada, desvio de obstáculos e mapa de aplicação.</p>
+            <p class="ex"><b>Exemplos:</b> DJI Agras, XAG. A aplicação de agrotóxicos por drone é regulada pela Portaria MAPA nº 298/2021.</p>
+            <p class="ea"><b>Para o EA:</b> planejamento de missão, controle de deriva, gestão de frota e baterias, registro das operações e responsabilidade técnica.</p>
+          </article>
+          <article class="tech" id="t4" data-short="Máquinas autônomas" data-area="mach" data-stage="piloto" data-impact="alto">
+            <div class="meta"><span class="n">4</span><span class="ar">Máquinas</span><span class="st st-piloto">Piloto</span></div>
+            <h3>Tratores e robôs autônomos</h3>
+            <p>Máquinas que executam a operação sem operador na cabine, supervisionadas por celular ou central. Câmeras e sensores detectam obstáculos e param a máquina.</p>
+            <p class="ex"><b>Exemplos:</b> trator 8R autônomo (John Deere), robô Solix (Solinftec, empresa brasileira).</p>
+            <p class="ea"><b>Para o EA:</b> projeto da operação, segurança de máquinas sem operador, logística de frota e supervisão de várias máquinas por uma pessoa.</p>
+          </article>
+          <article class="tech" id="t5" data-short="Manutenção preditiva" data-area="mach" data-stage="uso" data-impact="medio">
+            <div class="meta"><span class="n">5</span><span class="ar">Máquinas</span><span class="st st-uso">Em uso no Brasil</span></div>
+            <h3>Telemetria e manutenção preditiva</h3>
+            <p>A máquina envia dados de motor, consumo e operação. Modelos identificam padrões que antecedem falhas e sugerem a manutenção antes da quebra.</p>
+            <p class="ex"><b>Exemplos:</b> plataformas de conectividade dos fabricantes e sistemas de gestão de frota independentes.</p>
+            <p class="ea"><b>Para o EA:</b> gestão de frota por indicadores (custo por hectare, tempo parado), dimensionamento de máquinas baseado em dados reais.</p>
+          </article>
+          <article class="tech" id="t6" data-short="Capina robótica" data-area="mach" data-stage="piloto" data-impact="medio">
+            <div class="meta"><span class="n">6</span><span class="ar">Máquinas</span><span class="st st-piloto">Piloto</span></div>
+            <h3>Capina robótica, mecânica ou a laser</h3>
+            <p>Robôs que reconhecem a daninha e a eliminam com laser ou ferramenta mecânica, sem herbicida. Hoje concentrados em hortaliças de alto valor.</p>
+            <p class="ex"><b>Exemplos:</b> LaserWeeder (Carbon Robotics), em uso comercial nos Estados Unidos.</p>
+            <p class="ea"><b>Para o EA:</b> avaliar viabilidade econômica, adaptar a robótica a culturas e escalas brasileiras.</p>
+          </article>
+
+          <!-- ÁGUA -->
+          <article class="tech" id="t7" data-short="Irrigação por sensores" data-area="water" data-stage="uso" data-impact="alto">
+            <div class="meta"><span class="n">7</span><span class="ar">Água e irrigação</span><span class="st st-uso">Em uso no Brasil</span></div>
+            <h3>Manejo de irrigação por sensores e modelos</h3>
+            <p>Sondas de umidade, estações meteorológicas e dados de satélite alimentam modelos que recomendam quando e quanto irrigar em cada setor.</p>
+            <p class="ex"><b>Exemplos:</b> sondas capacitivas conectadas, plataformas de recomendação de lâmina, pivôs com controle remoto.</p>
+            <p class="ea"><b>Para o EA:</b> sai o turno de rega fixo, entra o projeto da rede de sensores, a calibração no solo local e a conferência do que o modelo recomenda.</p>
+          </article>
+          <article class="tech" id="t8" data-short="Previsão do tempo" data-area="water" data-stage="uso" data-impact="medio">
+            <div class="meta"><span class="n">8</span><span class="ar">Água e irrigação</span><span class="st st-uso">Em uso no Brasil</span></div>
+            <h3>Previsão do tempo por IA</h3>
+            <p>Redes neurais treinadas com décadas de dados climáticos produzem previsões globais em minutos, com qualidade comparável ou superior aos modelos físicos tradicionais.</p>
+            <p class="ex"><b>Exemplos:</b> GraphCast e GenCast (Google DeepMind), AIFS (centro europeu ECMWF, operacional desde 2025).</p>
+            <p class="ea"><b>Para o EA:</b> decisões de irrigação, plantio, pulverização e colheita com previsão melhor. Exige saber ler probabilidade e incerteza, não só a previsão mais provável.</p>
+          </article>
+          <article class="tech" id="t9" data-short="ET por satélite" data-area="water" data-stage="uso" data-impact="medio">
+            <div class="meta"><span class="n">9</span><span class="ar">Água e irrigação</span><span class="st st-uso">Em uso no Brasil</span></div>
+            <h3>Evapotranspiração por satélite</h3>
+            <p>Imagens de satélite estimam quanta água a lavoura está consumindo, talhão por talhão, sem instrumento no campo.</p>
+            <p class="ex"><b>Exemplos:</b> algoritmo SAFER (Embrapa), OpenET (Estados Unidos).</p>
+            <p class="ea"><b>Para o EA:</b> balanço hídrico em escala de bacia, outorga, conflito pelo uso da água e conferência do manejo de irrigação.</p>
+          </article>
+          <article class="tech" id="t10" data-short="Comportas automáticas" data-area="water" data-stage="piloto" data-impact="medio">
+            <div class="meta"><span class="n">10</span><span class="ar">Água e irrigação</span><span class="st st-piloto">Piloto</span></div>
+            <h3>Automação de comportas e bombas</h3>
+            <p>Sensores de nível e atuadores controlam a lâmina de água em lavouras de arroz irrigado e canais, ajustando a vazão conforme a necessidade.</p>
+            <p class="ex"><b>Exemplos:</b> projetos de pesquisa e propriedades pioneiras no arroz irrigado do Rio Grande do Sul.</p>
+            <p class="ea"><b>Para o EA:</b> projeto hidráulico somado a controle e comunicação. Economia de água e energia de bombeamento.</p>
+          </article>
+
+          <!-- GEO -->
+          <article class="tech" id="t11" data-short="Uso do solo" data-area="geo" data-stage="uso" data-impact="medio">
+            <div class="meta"><span class="n">11</span><span class="ar">Geotecnologias</span><span class="st st-uso">Em uso no Brasil</span></div>
+            <h3>Mapeamento automático do uso do solo</h3>
+            <p>Aprendizado de máquina classifica décadas de imagens de satélite em lavoura, pastagem, floresta, água e área urbana para todo o país.</p>
+            <p class="ex"><b>Exemplos:</b> MapBiomas (mapas anuais do Brasil desde 1985, gratuitos).</p>
+            <p class="ea"><b>Para o EA:</b> CAR, licenciamento, perícias e crédito rural partem de mapas prontos. O trabalho passa a ser conferir, corrigir e responder pelo mapa.</p>
+          </article>
+          <article class="tech" id="t12" data-short="Contagem por drone" data-area="geo" data-stage="uso" data-impact="medio">
+            <div class="meta"><span class="n">12</span><span class="ar">Geotecnologias</span><span class="st st-uso">Em uso no Brasil</span></div>
+            <h3>Contagem de plantas, falhas e daninhas por drone</h3>
+            <p>Imagens de drone processadas por modelos contam plantas, medem falhas de plantio e localizam manchas de daninhas e doenças.</p>
+            <p class="ex"><b>Exemplos:</b> softwares de processamento de imagens de drone com módulos de análise agronômica.</p>
+            <p class="ea"><b>Para o EA:</b> levantamento que levava dias leva horas. Avaliação de qualidade de semeadura e mapas de prescrição ficam rotineiros.</p>
+          </article>
+          <article class="tech" id="t13" data-short="Produtividade por satélite" data-area="geo" data-stage="uso" data-impact="medio">
+            <div class="meta"><span class="n">13</span><span class="ar">Geotecnologias</span><span class="st st-uso">Em uso no Brasil</span></div>
+            <h3>Estimativa de produtividade por satélite</h3>
+            <p>Séries de imagens e dados de clima alimentam modelos que estimam a produtividade antes da colheita, por talhão ou por região.</p>
+            <p class="ex"><b>Exemplos:</b> serviços usados por seguradoras, bancos e tradings para monitorar safra e sinistros.</p>
+            <p class="ea"><b>Para o EA:</b> perícia de sinistro e laudos de crédito rural com evidência de imagem. Cresce a demanda por quem sabe contestar ou validar essas estimativas.</p>
+          </article>
+          <article class="tech" id="t14" data-short="Modelos fundacionais" data-area="geo" data-stage="piloto" data-impact="alto">
+            <div class="meta"><span class="n">14</span><span class="ar">Geotecnologias</span><span class="st st-piloto">Piloto</span></div>
+            <h3>Modelos fundacionais geoespaciais</h3>
+            <p>Modelos grandes, pré-treinados com imagens de todo o planeta, que se adaptam a tarefas novas (mapear uma cultura, detectar enchente) com poucos exemplos.</p>
+            <p class="ex"><b>Exemplos:</b> Prithvi (NASA e IBM), AlphaEarth Foundations (Google DeepMind).</p>
+            <p class="ea"><b>Para o EA:</b> qualquer engenheiro poderá criar um mapa sob medida sem ser especialista em sensoriamento. O diferencial vira saber validar com verdade de campo.</p>
+          </article>
+
+          <!-- PÓS-COLHEITA -->
+          <article class="tech" id="t15" data-short="Grãos por imagem" data-area="post" data-stage="chegando" data-impact="alto">
+            <div class="meta"><span class="n">15</span><span class="ar">Pós-colheita</span><span class="st st-chegando">Chegando</span></div>
+            <h3>Classificação de grãos por imagem</h3>
+            <p>Equipamentos fotografam amostras e identificam defeitos, impurezas e grãos avariados em segundos, com resultado padronizado.</p>
+            <p class="ex"><b>Exemplos:</b> classificadores automáticos em teste em cooperativas e unidades armazenadoras. A classificação oficial segue exigindo classificador credenciado (Lei nº 9.972/2000).</p>
+            <p class="ea"><b>Para o EA:</b> integração do equipamento na recepção, validação contra a classificação oficial e projeto de fluxo de recebimento mais rápido.</p>
+          </article>
+          <article class="tech" id="t16" data-short="Aeração automática" data-area="post" data-stage="uso" data-impact="medio">
+            <div class="meta"><span class="n">16</span><span class="ar">Pós-colheita</span><span class="st st-uso">Em uso no Brasil</span></div>
+            <h3>Armazenagem monitorada e aeração automática</h3>
+            <p>Cabos de termometria e umidade dentro do silo, ligados a controladores que acionam a aeração no momento certo, considerando o clima externo.</p>
+            <p class="ex"><b>Exemplos:</b> sistemas de termometria digital com controle automático, oferecidos por fabricantes nacionais de armazéns.</p>
+            <p class="ea"><b>Para o EA:</b> menos perdas e menos energia. O projeto do armazém já nasce com sensores, comunicação e estratégia de controle.</p>
+          </article>
+
+          <!-- CONSTRUÇÕES E AMBIÊNCIA -->
+          <article class="tech" id="t17" data-short="Animais por câmera" data-area="build" data-stage="chegando" data-impact="medio">
+            <div class="meta"><span class="n">17</span><span class="ar">Construções e ambiência</span><span class="st st-chegando">Chegando</span></div>
+            <h3>Monitoramento de animais por câmera e sensores</h3>
+            <p>Câmeras estimam o peso do animal sem balança, detectam mudanças de comportamento e sinais de doença. Colares e brincos registram atividade e ruminação.</p>
+            <p class="ex"><b>Exemplos:</b> pesagem por imagem em confinamentos, colares de monitoramento em bovinos de leite e corte.</p>
+            <p class="ea"><b>Para o EA:</b> instalações projetadas com pontos de câmera, conectividade e manejo baseado em dados de cada animal.</p>
+          </article>
+          <article class="tech" id="t18" data-short="Ambiência" data-area="build" data-stage="uso" data-impact="medio">
+            <div class="meta"><span class="n">18</span><span class="ar">Construções e ambiência</span><span class="st st-uso">Em uso no Brasil</span></div>
+            <h3>Controle inteligente de ambiência</h3>
+            <p>Controladores de aviários e granjas de suínos ajustam ventilação, nebulização e aquecimento a partir de sensores, e cada vez mais por modelos preditivos.</p>
+            <p class="ex"><b>Exemplos:</b> controladores de ambiência integrados a plataformas na nuvem nas grandes integradoras.</p>
+            <p class="ea"><b>Para o EA:</b> conforto térmico deixa de ser só projeto e passa a ser operação contínua, com dados para comprovar bem-estar animal.</p>
+          </article>
+          <article class="tech" id="t19" data-short="Projeto com IA e BIM" data-area="build" data-stage="chegando" data-impact="medio">
+            <div class="meta"><span class="n">19</span><span class="ar">Construções e ambiência</span><span class="st st-chegando">Chegando</span></div>
+            <h3>Projeto assistido por IA e BIM</h3>
+            <p>Ferramentas que geram alternativas de projeto, pré-dimensionam estruturas e montam quantitativos e memoriais a partir do modelo da edificação.</p>
+            <p class="ex"><b>Exemplos:</b> recursos de IA nos softwares de BIM e cálculo estrutural, assistentes de IA generativa usados para memoriais.</p>
+            <p class="ea"><b>Para o EA:</b> menos horas desenhando, mais horas verificando. A ART continua sendo do engenheiro, inclusive pelo que a ferramenta gerou.</p>
+          </article>
+
+          <!-- GESTÃO -->
+          <article class="tech" id="t20" data-short="Plataformas digitais" data-area="mgmt" data-stage="uso" data-impact="medio">
+            <div class="meta"><span class="n">20</span><span class="ar">Gestão e dados</span><span class="st st-uso">Em uso no Brasil</span></div>
+            <h3>Plataformas de agricultura digital</h3>
+            <p>Reúnem mapas de colheita, imagens, clima e operações de máquina em um só lugar e geram recomendações de manejo por talhão.</p>
+            <p class="ex"><b>Exemplos:</b> Climate FieldView (Bayer), xarvio (BASF), plataformas de gestão agrícola brasileiras.</p>
+            <p class="ea"><b>Para o EA:</b> integrar dados de fontes diferentes, criticar recomendações e explicar ao produtor de onde elas vêm.</p>
+          </article>
+          <article class="tech" id="t21" data-short="Diagnóstico por foto" data-area="mgmt" data-stage="uso" data-impact="baixo">
+            <div class="meta"><span class="n">21</span><span class="ar">Gestão e dados</span><span class="st st-uso">Em uso no Brasil</span></div>
+            <h3>Diagnóstico de pragas e doenças por foto</h3>
+            <p>O produtor fotografa a folha com o celular e o aplicativo sugere o problema provável e o manejo.</p>
+            <p class="ex"><b>Exemplos:</b> Plantix e recursos similares em aplicativos de cooperativas e empresas de insumos.</p>
+            <p class="ea"><b>Para o EA:</b> impacto indireto. A triagem chega pronta, e o profissional atua nos casos que o aplicativo não resolve.</p>
+          </article>
+          <article class="tech" id="t22" data-short="IA generativa" data-area="mgmt" data-stage="uso" data-impact="alto">
+            <div class="meta"><span class="n">22</span><span class="ar">Gestão e dados</span><span class="st st-uso">Em uso no Brasil</span></div>
+            <h3>Assistentes de IA generativa</h3>
+            <p>Modelos de linguagem que redigem relatórios, explicam normas, escrevem código, montam planilhas e analisam dados a partir de uma conversa.</p>
+            <p class="ex"><b>Exemplos:</b> ChatGPT, Claude, Gemini e assistentes embutidos em softwares de escritório.</p>
+            <p class="ea"><b>Para o EA:</b> é a tecnologia de maior alcance imediato, porque toca todas as áreas. Produtividade alta, mas com risco de erro convincente. Conferir é parte do trabalho.</p>
+          </article>
+          <article class="tech" id="t23" data-short="Agentes de IA" data-area="mgmt" data-stage="piloto" data-impact="alto">
+            <div class="meta"><span class="n">23</span><span class="ar">Gestão e dados</span><span class="st st-piloto">Piloto</span></div>
+            <h3>Agentes de IA</h3>
+            <p>Sistemas que não só respondem, mas executam tarefas em sequência: consultam a previsão e os sensores, montam o plano de irrigação, geram o relatório e enviam ao produtor.</p>
+            <p class="ex"><b>Exemplos:</b> agentes construídos sobre modelos de linguagem e conectados a sistemas de gestão, ainda em fase inicial no agro.</p>
+            <p class="ea"><b>Para o EA:</b> definir o que o agente pode decidir sozinho, onde precisa de aprovação humana e como auditar o que ele fez.</p>
+          </article>
+          <article class="tech" id="t24" data-short="Carbono (MRV)" data-area="mgmt" data-stage="chegando" data-impact="medio">
+            <div class="meta"><span class="n">24</span><span class="ar">Gestão e dados</span><span class="st st-chegando">Chegando</span></div>
+            <h3>Medição de carbono por sensoriamento e modelos</h3>
+            <p>Combinação de amostras de solo, imagens e modelos para medir, relatar e verificar (MRV) o carbono estocado e as emissões da propriedade.</p>
+            <p class="ex"><b>Exemplos:</b> plataformas de MRV para créditos de carbono. A Lei nº 15.042/2024 criou o mercado regulado brasileiro (SBCE).</p>
+            <p class="ea"><b>Para o EA:</b> novo campo de atuação em projetos de carbono, com amostragem, modelagem e verificação independente.</p>
+          </article>
+        </div>
+        <p class="te-empty" id="te-empty" hidden>Nenhuma tecnologia combina esses dois filtros.</p>
+      </section>
+
+      <!-- MAPA MATURIDADE x IMPACTO -->
+      <section class="reveal">
+        <span class="eyebrow">Mapa</span>
+        <h2>Maturidade e impacto no trabalho do EA</h2>
+        <p>Cada número é um cartão do catálogo. Quanto mais à esquerda, mais disponível a tecnologia já está. Quanto mais alto, mais ela muda o dia a dia do engenheiro agrícola. Clique em um número para ir ao cartão.</p>
+        <div class="te-map-wrap">
+          <div class="te-map" id="te-map" role="table" aria-label="Tecnologias por maturidade e impacto">
+            <div class="corner" role="columnheader"></div>
+            <div class="colh" role="columnheader">Em uso no Brasil</div>
+            <div class="colh" role="columnheader">Chegando</div>
+            <div class="colh" role="columnheader">Piloto</div>
+            <div class="rowh" role="rowheader">Impacto alto</div>
+            <div class="cell" data-stage="uso" data-impact="alto"></div>
+            <div class="cell" data-stage="chegando" data-impact="alto"></div>
+            <div class="cell" data-stage="piloto" data-impact="alto"></div>
+            <div class="rowh" role="rowheader">Impacto médio</div>
+            <div class="cell" data-stage="uso" data-impact="medio"></div>
+            <div class="cell" data-stage="chegando" data-impact="medio"></div>
+            <div class="cell" data-stage="piloto" data-impact="medio"></div>
+            <div class="rowh" role="rowheader">Impacto baixo</div>
+            <div class="cell" data-stage="uso" data-impact="baixo"></div>
+            <div class="cell" data-stage="chegando" data-impact="baixo"></div>
+            <div class="cell" data-stage="piloto" data-impact="baixo"></div>
+          </div>
+        </div>
+        <p class="note">O quadrante superior esquerdo é o mais urgente para quem está no curso agora: drones, manejo de irrigação por sensores e assistentes de IA generativa já mudam o trabalho hoje.</p>
+      </section>
+
+      <!-- EFEITOS NA PROFISSÃO -->
+      <section class="reveal">
+        <span class="eyebrow">Como afeta a profissão</span>
+        <h2>Tarefas que encolhem, mudam ou surgem</h2>
+        <p>O efeito da IA aparece no nível da tarefa, não da profissão inteira. Algumas tarefas do engenheiro agrícola ficam automáticas, outras mudam de forma e outras nascem agora.</p>
+        <div class="tasks">
+          <div class="task shrink">
+            <h3>Encolhem</h3>
+            <ul>
+              <li>Dimensionamentos de rotina feitos à mão</li>
+              <li>Digitação de relatórios, memoriais e orçamentos</li>
+              <li>Contagem e amostragem visual no campo</li>
+              <li>Regulagem de máquina por tentativa e erro</li>
+              <li>Classificação manual de imagens e mapas</li>
+              <li>Operação direta de máquina em grandes áreas</li>
+            </ul>
+          </div>
+          <div class="task change">
+            <h3>Mudam</h3>
+            <ul>
+              <li>Regulagem vira configuração de máquina e de modelo</li>
+              <li>Projeto de irrigação inclui sensores, comunicação e controle</li>
+              <li>Laudo e perícia passam a usar imagem e modelo como evidência</li>
+              <li>Assistência técnica vira tradução de recomendações para o produtor</li>
+              <li>Gestão de frota vira gestão por indicadores e telemetria</li>
+              <li>Projeto de instalação já nasce com sensores e dados</li>
+            </ul>
+          </div>
+          <div class="task emerge">
+            <h3>Surgem</h3>
+            <ul>
+              <li>Supervisão de frotas autônomas e de drones</li>
+              <li>Validação de modelos no solo, clima e cultura locais</li>
+              <li>Arquitetura de dados da propriedade (sensores, rede, integração)</li>
+              <li>Medição e verificação de carbono e rastreabilidade</li>
+              <li>Segurança de sistemas autônomos no campo</li>
+              <li>Governança dos dados do produtor e conformidade com a LGPD</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="te-keep">
+          <h3>O que continua com o engenheiro</h3>
+          <div class="keep-grid">
+            <div><b>Responsabilidade técnica</b><p>A profissão é regulada pela Lei nº 5.194/1966. Quem assina a ART responde pelo projeto, mesmo que uma ferramenta tenha feito parte dele.</p></div>
+            <div><b>Entendimento físico</b><p>Modelo treinado com dados não sabe hidráulica nem mecânica dos solos. Quem sabe percebe quando a resposta é impossível.</p></div>
+            <div><b>Situações novas</b><p>Modelos aprendem com o passado. Enchentes como as de maio de 2024 no Rio Grande do Sul mostram que o inédito exige julgamento humano.</p></div>
+            <div><b>Relação com as pessoas</b><p>Entender o produtor, negociar com cooperativa e órgão público e explicar uma decisão continua sendo trabalho de gente.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FUTURO PRÓXIMO -->
+      <section class="reveal">
+        <span class="eyebrow">O que vem aí</span>
+        <h2>Três horizontes para o futuro próximo</h2>
+        <p>Previsões sobre tecnologia erram no prazo com frequência. Os horizontes abaixo indicam a direção, com prazos aproximados e incerteza crescente.</p>
+        <div class="horizons">
+          <div class="hz" style="--k:1">
+            <span class="when">até 2028</span>
+            <h3>Consolidação</h3>
+            <ul>
+              <li><b>Agentes de IA na gestão:</b> relatórios, planos de operação e alertas montados automaticamente a partir dos dados da fazenda.</li>
+              <li><b>Visão embarcada em mais máquinas:</b> pulverização seletiva, semeadora que corrige falhas, colhedora que ajusta regulagem pela imagem do grão.</li>
+              <li><b>Previsão do tempo por IA em escala local:</b> previsões por talhão, com probabilidade de chuva e geada.</li>
+              <li><b>Conectividade por satélite no campo:</b> internet e celular via satélite onde não há torre, viabilizando sensores e máquinas conectadas.</li>
+              <li><b>Fiscalização por imagem:</b> crédito, seguro e regularidade ambiental verificados por satélite com mais frequência.</li>
+            </ul>
+          </div>
+          <div class="hz" style="--k:2">
+            <span class="when">2028 a 2032</span>
+            <h3>Autonomia</h3>
+            <ul>
+              <li><b>Frotas autônomas:</b> várias máquinas, inclusive pequenas, operando juntas sob supervisão de uma pessoa.</li>
+              <li><b>Robôs de colheita:</b> frutas e hortaliças colhidas por braços robóticos com visão.</li>
+              <li><b>Gêmeos digitais da propriedade:</b> modelo vivo da fazenda para testar decisões antes de executar.</li>
+              <li><b>Modelos fundacionais agrícolas:</b> modelos grandes de solo, planta e clima usados como base por empresas e universidades.</li>
+              <li><b>Carbono medido automaticamente:</b> MRV com sensores e satélite, mais barato, abrindo o mercado a médios produtores.</li>
+            </ul>
+          </div>
+          <div class="hz" style="--k:3">
+            <span class="when">depois de 2032</span>
+            <h3>Integração</h3>
+            <ul>
+              <li><b>Operação quase toda autônoma em grandes culturas:</b> do plantio à colheita, com humanos supervisionando e tratando exceções.</li>
+              <li><b>Robótica com manipulação fina:</b> poda, desbaste e tarefas delicadas hoje manuais.</li>
+              <li><b>IA que propõe projetos completos:</b> sistema de irrigação, armazém ou galpão gerados e verificados por simulação, com o engenheiro revisando e assinando.</li>
+              <li><b>Cadeia rastreada de ponta a ponta:</b> do talhão ao consumidor, com dados de origem, carbono e uso de água.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- BARREIRAS -->
+      <section class="reveal">
+        <span class="eyebrow">Freios</span>
+        <h2>O que pode atrasar essa chegada no Brasil</h2>
+        <div class="barriers">
+          <div><b>Conectividade rural</b><p>Boa parte das áreas produtivas ainda não tem sinal estável. Sem dados chegando, sensor e máquina conectada não funcionam.</p></div>
+          <div><b>Custo e escala</b><p>As tecnologias chegam primeiro às grandes propriedades. O pequeno produtor depende de cooperativa, serviço terceirizado ou política pública.</p></div>
+          <div><b>Dados locais</b><p>Muitos modelos foram treinados nos Estados Unidos e na Europa. No Pampa, com outros solos, cultivares e clima, podem errar sem aviso.</p></div>
+          <div><b>Pessoas qualificadas</b><p>Falta quem saiba instalar, calibrar, integrar e manter. É aqui que o engenheiro agrícola tem espaço.</p></div>
+          <div><b>Regulação</b><p>Regras para drones, máquinas autônomas, uso de dados e IA ainda estão sendo definidas. O PL nº 2338/2023, marco legal da IA, foi aprovado no Senado em dezembro de 2024.</p></div>
+        </div>
+      </section>
+
+      <!-- PAMPA -->
+      <section class="reveal">
+        <span class="eyebrow">Aqui no Pampa</span>
+        <h2>Onde a IA encontra a produção da região de Alegrete</h2>
+        <div class="pampa">
+          <div data-area="water"><b>Arroz irrigado</b><p>Manejo da lâmina com sensores de nível, automação de comportas e bombas, nivelamento com GNSS e previsão de disponibilidade de água nas barragens.</p></div>
+          <div data-area="build"><b>Pecuária em campo nativo</b><p>Estimativa de biomassa da pastagem por satélite, pesagem por câmera, colares de monitoramento e ajuste da lotação com dados.</p></div>
+          <div data-area="mach"><b>Soja e grãos</b><p>Pulverização seletiva e por drone, mapas de produtividade, drenagem de várzeas e armazenagem monitorada nas cooperativas.</p></div>
+          <div data-area="geo"><b>Eventos extremos</b><p>Estiagens e enchentes recentes pedem monitoramento hidrológico, alertas com IA e mapas rápidos de área atingida para perícia e seguro.</p></div>
+        </div>
+      </section>
+
+      <!-- O QUE ESTUDAR -->
+      <section class="reveal">
+        <span class="eyebrow">Para quem está no curso</span>
+        <h2>Como se preparar desde já</h2>
+        <ol class="prep">
+          <li><b>Leve os fundamentos a sério.</b> Física, cálculo, solos e hidráulica são o que permite saber quando a IA errou.</li>
+          <li><b>Aprenda a programar em Python.</b> Tratar dados de sensores, clima e máquina é a habilidade que mais se repete nos cartões acima.</li>
+          <li><b>Use IA com método.</b> Peça, confira, refaça à mão uma parte, registre o que usou. Nunca entregue o que não consegue explicar.</li>
+          <li><b>Vá a campo com tecnologia.</b> Procure projetos com drones, sensores e estações meteorológicas no campus e em produtores parceiros.</li>
+          <li><b>Escolha optativas e ACGs com foco digital.</b> Geoprocessamento, sensoriamento remoto, automação e cursos livres de dados contam pontos.</li>
+          <li><b>Faça estágio onde a tecnologia já chegou.</b> Cooperativas, revendas de máquinas, empresas de agricultura digital e Embrapa.</li>
+        </ol>
+        <p class="te-links"><a class="btn btn-primary" href="futuro.html">Veja como seria um PPC pensado para isso</a> <a class="btn btn-ghost" href="matriz.html">Matriz curricular atual</a></p>
+      </section>
+
+      <div class="sources">
+        <span>Os produtos e empresas citados ilustram cada categoria e não representam recomendação ou endosso. Estágio e impacto são avaliações nossas, para outubro de 2026, e mudam rápido.</span>
+        <span>Normas citadas: Lei nº 5.194/1966 (exercício da engenharia); Lei nº 9.972/2000 (classificação de produtos vegetais); Portaria MAPA nº 298/2021 (aeronaves remotamente pilotadas na aplicação de agrotóxicos); Lei nº 13.709/2018 (LGPD); Lei nº 15.042/2024 (SBCE); PL nº 2338/2023 (marco legal da IA).</span>
+      </div>
+    </div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="data/courses.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/tecnologias.js"></script>
+</body>
+</html>
