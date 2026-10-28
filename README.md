@@ -4,7 +4,7 @@ Site estático e trilíngue (PT · EN · ES) que explica o **Projeto Pedagógico
 
 | Página | O que tem |
 | --- | --- |
-| `index.html` | Visão geral: clipe do curso em duas versões (com legendas), dois reels verticais “Raiz e Engrenagem”, “Conceitos em vídeo” (curva de nível), as músicas do curso (players de áudio com download, de `musicas/`), números do curso, jornada animada do 1º ao 10º semestre, divisão das 3.985 h, requisitos para se formar e “dicionário do calouro”. |
+| `index.html` | Visão geral: clipe do curso em duas versões (com legendas), dois reels verticais (“Vem pra Unipampa” e “Frentes de atuação”, de `reels/`), “Conceitos em vídeo” (curva de nível), as músicas do curso (players de áudio com download, de `musicas/`), números do curso, jornada animada do 1º ao 10º semestre, divisão das 3.985 h, requisitos para se formar e “dicionário do calouro”. |
 | `matriz.html` | Matriz curricular por semestre com mapa de pré-requisitos (linhas animadas), ementas, filtros por área e catálogo das 48 CCCGs. Link direto para uma disciplina: `matriz.html?c=AL0010`. |
 | `grade.html` | “Monte sua grade”: planejamento por semestre (arrastar/soltar ou botão +), validação de pré-requisitos e limites de 120–540 h, escolha de CCCGs, calculadora de ACGs com a tabela do PPC, checklist de formatura e láurea. Salvo no `localStorage`; exporta em PDF, PNG, XLSX, CSV e JSON (o JSON pode ser importado de volta). XLSX e PDF usam SheetJS e jsPDF, carregados do cdnjs só quando o usuário exporta. |
 | `agenda.html` | Só redireciona para `horarios.html#agenda` (mantém os links antigos, inclusive os compartilhados). |
@@ -24,7 +24,7 @@ assets/css/style.css     estilos (tema claro/escuro, animações)
 assets/js/app.js         núcleo: idiomas, tema, cabeçalho/rodapé, ícones, áreas
 assets/js/course-ui.js   painel com detalhes da disciplina
 assets/js/*.js           um script por página (textos traduzidos ficam junto)
-assets/video/            clipe do curso em duas versões (MP4 720p), dois reels verticais (MP4 720×1280), vídeo de conceito “curva de nível” (MP4 1080p, legendas na imagem), pôsteres e legendas WebVTT (compartilhadas)
+assets/video/            clipe do curso em duas versões (MP4 720p), vídeo de conceito “curva de nível” (MP4 1080p, legendas na imagem), pôsteres e legendas WebVTT (compartilhadas)
 musicas/                 músicas do curso em MP3 (fora do cache offline)
 ppc/                     PDFs de todas as versões do PPC (ppc_engenharia_agricola_<ano>.pdf; 2023 tem _03 e _12)
 sw.js                    service worker: guarda páginas, CSS, JS e dados para uso sem internet (vídeos, músicas e PDFs ficam de fora)

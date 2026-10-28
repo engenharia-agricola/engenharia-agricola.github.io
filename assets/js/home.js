@@ -16,16 +16,16 @@
     'home.v.v2': ['Versão 2', 'Version 2', 'Versión 2'],
     'home.v.aria1': ['Clipe do curso de Engenharia Agrícola da Unipampa, versão 1', 'Unipampa Agricultural Engineering program clip, version 1', 'Clip de la carrera de Ingeniería Agrícola de la Unipampa, versión 1'],
     'home.v.aria2': ['Clipe do curso de Engenharia Agrícola da Unipampa, versão 2', 'Unipampa Agricultural Engineering program clip, version 2', 'Clip de la carrera de Ingeniería Agrícola de la Unipampa, versión 2'],
-    'home.reel.h3': ['Reels: Raiz e Engrenagem', 'Reels: Raiz e Engrenagem (Root and Gear)', 'Reels: Raiz e Engrenagem (Raíz y Engranaje)'],
+    'home.reel.h3': ['Reels do curso', 'Program reels', 'Reels del curso'],
     'home.reel.lead': [
       'Dois reels verticais, pensados para o celular e para as redes sociais.',
       'Two vertical reels, made for phones and social media (in Portuguese).',
       'Dos reels verticales, pensados para el celular y las redes sociales (en portugués).'
     ],
-    'home.reel.r1': ['Versão completa', 'Full version', 'Versión completa'],
-    'home.reel.r2': ['Versão curta', 'Short version', 'Versión corta'],
-    'home.reel.aria1': ['Reel Raiz e Engrenagem, versão completa', 'Raiz e Engrenagem reel, full version', 'Reel Raiz e Engrenagem, versión completa'],
-    'home.reel.aria2': ['Reel Raiz e Engrenagem, versão curta', 'Raiz e Engrenagem reel, short version', 'Reel Raiz e Engrenagem, versión corta'],
+    'home.reel.r1': ['Vem pra Unipampa', 'Vem pra Unipampa (Come to Unipampa)', 'Vem pra Unipampa (Vení a Unipampa)'],
+    'home.reel.r2': ['Frentes de atuação', 'Fields of work', 'Áreas de actuación'],
+    'home.reel.aria1': ['Reel Vem pra Unipampa', 'Vem pra Unipampa reel', 'Reel Vem pra Unipampa'],
+    'home.reel.aria2': ['Reel Frentes de atuação da Engenharia Agrícola', 'Agricultural Engineering fields of work reel', 'Reel Áreas de actuación de la Ingeniería Agrícola'],
     'home.con.h3': ['Conceitos em vídeo', 'Concepts on video', 'Conceptos en video'],
     'home.con.lead': [
       'Ideias do curso explicadas em poucos minutos. Para começar: a curva de nível, técnica que segura a água e o solo no lugar.',
